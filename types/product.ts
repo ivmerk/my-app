@@ -1,11 +1,11 @@
-import { Comment } from "./Comment";
+import { Comment } from "./comment";
 
-export type Card = {
+export type Product = {
   id: string;
   title: string;
   description: string;
   image: string;
-  isAvailable: boolean;
+  availability: string;
   price: number;
   isFavorite: boolean;
   isInCart: boolean;

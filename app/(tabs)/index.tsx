@@ -1,4 +1,4 @@
-import CardItem from '@/components/CardItem';
+import ProductCard from '@/components/productCard';
 import { GoodCards } from '@/mocks/data';
 import {StatusBar, FlatList,  Text, StyleSheet,SafeAreaView } from 'react-native';
 
@@ -10,7 +10,7 @@ return (
       <StatusBar backgroundColor='white'/>
       <FlatList 
         data={GoodCards}
-        renderItem={({ item }) => <CardItem item={item} onPress={() => {}} />}
+        renderItem={({ item }) => <ProductCard item={item} onPress={() => {}} />}
         keyExtractor={(item) => item.id}
       />
   </SafeAreaView>
