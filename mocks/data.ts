@@ -1,6 +1,6 @@
 export const GoodCards = [
   {
-    id: 1,
+    id: "1",
     title: "Good title 1",
     description: "Good description 1",
     image: "https://picsum.photos/200/300",
@@ -10,9 +10,9 @@ export const GoodCards = [
     isInCart: false,
     quantity: 1,
     comments: [
-      { id: 1, text: "Comment 1" },
-      { id: 2, text: "Comment 2" },
-      { id: 3, text: "Comment 3" },
+      { id: "1", postId: "1", name: "Ivan", email: "email@gmail.com", body: "body1" },
+      { id: "2", postId: "2", name: "Iva2", email: "emai2@gmail.com", body: "body2" },
+      { id: "3", postId: "3", name: "Ivan3", email: "email@gmail.com", body: "body3" },
     ],
     termsOfDelivery: "10 days",
     category: "category 1",
@@ -21,7 +21,7 @@ export const GoodCards = [
     selesQty: 100,
   },
   {
-    id: 2,
+    id: "2",
     title: "Good title 2",
     description: "Good description 1",
     image: "https://picsum.photos/200/300",
@@ -31,9 +31,9 @@ export const GoodCards = [
     isInCart: false,
     quantity: 1,
     comments: [
-      { id: 1, text: "Comment 1" },
-      { id: 2, text: "Comment 2" },
-      { id: 3, text: "Comment 3" },
+      { id: "1", postId: "1", name: "Ivan", email: "email@gmail.com", body: "body1" },
+      { id: "2", postId: "2", name: "Iva2", email: "emai2@gmail.com", body: "body2" },
+      { id: "3", postId: "3", name: "Ivan3", email: "email@gmail.com", body: "body3" },
     ],
     termsOfDelivery: "10 days",
     category: "category 2",
@@ -42,7 +42,7 @@ export const GoodCards = [
     selesQty: 100,
   },
   {
-    id: 3,
+    id: "3",
     title: "Good title 3",
     description: "Good description 1",
     image: "https://picsum.photos/200/300",
@@ -52,9 +52,9 @@ export const GoodCards = [
     isInCart: false,
     quantity: 1,
     comments: [
-      { id: 1, text: "Comment 1" },
-      { id: 2, text: "Comment 2" },
-      { id: 3, text: "Comment 3" },
+      { id: "1", postId: "1", name: "Ivan", email: "email@gmail.com", body: "body1" },
+      { id: "2", postId: "2", name: "Iva2", email: "emai2@gmail.com", body: "body2" },
+      { id: "3", postId: "3", name: "Ivan3", email: "email@gmail.com", body: "body3" },
     ],
     termsOfDelivery: "10 days",
     category: "category 3",
@@ -63,7 +63,7 @@ export const GoodCards = [
     selesQty: 100,
   },
   {
-    id: 4,
+    id: "4",
     title: "Good title 4",
     description: "Good description 1",
     image: "https://picsum.photos/200/300",
@@ -73,9 +73,9 @@ export const GoodCards = [
     isInCart: false,
     quantity: 1,
     comments: [
-      { id: 1, text: "Comment 1" },
-      { id: 2, text: "Comment 2" },
-      { id: 3, text: "Comment 3" },
+      { id: "1", postId: "1", name: "Ivan", email: "email@gmail.com", body: "body1" },
+      { id: "2", postId: "2", name: "Iva2", email: "emai2@gmail.com", body: "body2" },
+      { id: "3", postId: "3", name: "Ivan3", email: "email@gmail.com", body: "body3" },
     ],
     termsOfDelivery: "10 days",
     category: "category 1",

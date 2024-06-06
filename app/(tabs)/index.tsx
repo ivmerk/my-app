@@ -1,13 +1,7 @@
-import { GoodCards } from '@/moks/data';
+import CardItem from '@/components/CardItem';
+import { GoodCards } from '@/mocks/data';
 import {StatusBar, FlatList,  Text, StyleSheet,SafeAreaView } from 'react-native';
 
-
-type CardProps = typeof GoodCards[number];
-  
-const Card = ({ item }: { item: CardProps }) => 
-  (
-      <Text>{item.title}</Text>
-  );
 
 
 export default function Tab() {
@@ -16,31 +10,9 @@ return (
       <StatusBar backgroundColor='white'/>
       <FlatList 
         data={GoodCards}
-        renderItem={({ item }) => <Card item={item} />}
+        renderItem={({ item }) => <CardItem item={item} onPress={() => {}} />}
         keyExtractor={(item) => item.id}
       />
-      <Text>Tab [Home]</Text>
-      <Text>Tab [Home]</Text>
-      <Text>Tab [Home]</Text>
-      <Text>Tab [Home]</Text>
-      <Text>Tab [Home]</Text>
-      <Text>Tab [Home]</Text>
-      <Text>Tab [Home]</Text>
-      <Text>Tab [Home]</Text>
-      <Text>Tab [Home]</Text>
-      <Text>Tab [Home]</Text>
-      <Text>Tab [Home]</Text>
-      <Text>Tab [Home]</Text>
-      <Text>Tab [Home]</Text>
-      <Text>Tab [Home]</Text>
-      <Text>Tab [Home]</Text>
-      <Text>Tab [Home]</Text>
-      <Text>Tab [Home]</Text>
-      <Text>Tab [Home]</Text>
-      <Text>Tab [Home]</Text>
-      <Text>Tab [Home]</Text>
-      <Text>Tab [Home]</Text>
-      <Text>Tab [Home]</Text>
   </SafeAreaView>
   );
 }
