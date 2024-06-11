@@ -5,10 +5,11 @@ import { View, Text, StyleSheet, TouchableOpacity, Image, ImageBackground } from
 
 interface CardProps {
   item: Product;
-  onPress: (id: string) => void;
+  placeInCartHandler: (id: string) => void;
+  placeInFavoriteHandler: (id: string) => void;
 }
 
-const ProductCard: React.FC<CardProps> = ({ item, onPress}) => {
+const ProductCard: React.FC<CardProps> = ({ item, placeInCartHandler, placeInFavoriteHandler}) => {
   return (
     <View style={styles.card}>
       <ImageBackground
@@ -38,12 +39,33 @@ const ProductCard: React.FC<CardProps> = ({ item, onPress}) => {
         <Text style={styles.boldingText}>{item.rating}</Text>
         <Text style={styles.ligthText}>/{item.comments.length} отзывов/{item.selesQty} продаж</Text>
       </View>
-      <TouchableOpacity onPress={() => onPress(item.id)}>
-        <Text>В наличии</Text>
+      <View style={styles.categoryTitleAndDescriptionContainer}>
+        <Text style={styles.boldingText}>{item.category}: {item.title}</Text>
+        <Text style={styles.boldingText}>{item.description}</Text>
+      </View>
+      <View style={styles.priceInCartAndToFavoriteContainer}>
+        <View style={styles.priceInCartAndToFavoriteItem}>
+          <Text style={styles.priceInCartAndToFavoriteText}>{item.price} ₽</Text>
+        </View>
+      <TouchableOpacity onPress={() => placeInCartHandler(item.id)}>
+        <View style={styles.priceInCartAndToFavoriteItem}>
+          <Ionicons
+            name="bag"
+            size={20}
+            color="#484848"/>
+          <Text style={styles.priceInCartAndToFavoriteText}> В корзину</Text>
+        </View>
       </TouchableOpacity>
-      <Text style={styles.boldingText}>{item.category}: {item.title}</Text>
-      <Text style={styles.boldingText}>{item.description}</Text>
-      <Text>{item.price}</Text>
+      <TouchableOpacity onPress={() =>placeInFavoriteHandler(item.id)}>
+        <View style={styles.priceInCartAndToFavoriteItem}>
+          <Ionicons
+            name="heart-outline"
+            size={25}
+            color="#484848"
+          />
+        </View>
+      </TouchableOpacity>
+      </View>
     </View>
   );
 };
@@ -53,8 +75,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     marginVertical: 8,
     marginHorizontal: 16,
-    paddingBottom: 122,
-    borderRadius: 8,
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
@@ -82,22 +102,24 @@ const styles = StyleSheet.create({
     position: 'absolute',
     left: 0,
     right: 0,
-    top: '70%',
+    top: '65%',
   },
   isAvailableAndTermsItemContainer: {
     display: 'flex',
     marginBottom: 8,
     alignItems: 'center',
     backgroundColor: '#484848',
-    width: 128,
+    width: '40%',
     height: 20,
   },
   isAvailableAndTermsItemText: {
     color: '#fff',
   },
   ratingContainer: {
+    display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
+    marginTop: 4,
     marginBottom: 8,
   },
   ligthText: {
@@ -113,6 +135,33 @@ const styles = StyleSheet.create({
     marginLeft: 4,
     color: '#484848',
   },
+  categoryTitleAndDescriptionContainer: {
+    marginTop:12,
+  },
+  priceInCartAndToFavoriteContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: 12,
+  },
+  priceInCartAndToFavoriteItem:{
+    display: 'flex',
+    height: 40,
+    paddingTop: 8, 
+    paddingBottom: 8, 
+    paddingLeft: 12,
+    paddingRight: 12,
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#d9d9d9',
+  },
+  priceInCartAndToFavoriteText: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginLeft: 4,
+    color: '#484848',
+    
+  }
 });
 
 export default ProductCard;
