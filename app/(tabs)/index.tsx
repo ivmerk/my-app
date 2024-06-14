@@ -1,10 +1,12 @@
 import Logo from '@/components/logo';
+import MobileStoriesList from '@/components/mobile-stories-list';
 import ProductCard from '@/components/product-card';
+import SearchProductField from '@/components/search-product-field';
 import { GoodCards } from '@/mocks/data';
-import { View, Text, StatusBar, FlatList,  Animated, StyleSheet,SafeAreaView } from 'react-native';
+import { Animated, StyleSheet,SafeAreaView, Dimensions, View } from 'react-native';
 
 
-
+const {height, width}= Dimensions.get('window'); 
 
 export default function Tab() {
 const placeInCartHandler = (id: string) => {
@@ -26,14 +28,37 @@ const opacity = scrollY.interpolate({
   outputRange: [1, 0],
   extrapolate: 'clamp',
 })
+
+const maxHeightOfLogo = 5 * height / 100;
+const heightOfLogo = scrollY.interpolate({
+  inputRange: [0, maxHeightOfLogo],
+  outputRange: [maxHeightOfLogo, 0],
+  extrapolate: 'clamp',
+})
+const maxWidthOfLogo = 4.5 * width / 100; 
+const widthOfLogo = scrollY.interpolate({
+  inputRange: [0, maxWidthOfLogo],
+  outputRange: [maxWidthOfLogo, 0],
+  extrapolate: 'clamp',
+})
+
+
+const maxHeightOfSlider =  10 * height / 100;
+const heightOfSlider = scrollY.interpolate({
+  inputRange: [0, maxHeightOfSlider],
+  outputRange: [maxHeightOfSlider, 0],
+  extrapolate: 'clamp',
+})
 return ( 
   <SafeAreaView style={styles.container}>
-      <Animated.View style={[styles.HeaderContainer, {height: 50, opacity}]}>
+      <View style={styles.headerContainer}>
+      <Animated.View style={[styles.logo, {height:heightOfLogo, width: widthOfLogo}]}>
         <Logo />
-        <Text>Search Header 1</Text>
       </Animated.View >
-      <Animated.View style={[styles.HeaderContainer, {height: 50, opacity}]}>
-        <Text>Search Header</Text>
+        <SearchProductField/>
+      </View>
+      <Animated.View style={[styles.headerContainer, {height: heightOfSlider}]}>
+        <MobileStoriesList/>
       </Animated.View >
       <Animated.FlatList 
         data={GoodCards}
@@ -53,23 +78,29 @@ return (
   );
 }
 
+
 const styles = StyleSheet.create({
-  HeaderContainer: {
+  headerContainer: {
     display: 'flex',
     flexDirection: 'row',
+    marginTop: '3%',
     width: '100%',
+    height: '7%',
     backgroundColor: 'white',
     alignItems: 'center',
-    justifyContent: 'center',
   },
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    paddingHorizontal: '8%',
+  },
+  logo: {
+  maxHeight:30,
+    maxWidth:28,
   },
   scrollView: {
     backgroundColor: 'white',
-    marginHorizontal: 20,
   },
 });
 
