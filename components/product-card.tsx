@@ -1,7 +1,7 @@
 import { Product } from '@/types/product';
 import { Ionicons } from '@expo/vector-icons';
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image, ImageBackground } from 'react-native';
+import { View, Text, StyleSheet, Pressable, Image, ImageBackground } from 'react-native';
 
 interface CardProps {
   item: Product;
@@ -47,7 +47,7 @@ const ProductCard: React.FC<CardProps> = ({ item, placeInCartHandler, placeInFav
         <View style={styles.priceInCartAndToFavoriteItem}>
           <Text style={styles.priceInCartAndToFavoriteText}>{item.price} ₽</Text>
         </View>
-      <TouchableOpacity onPress={() => placeInCartHandler(item.id)}>
+      <Pressable onPress={() => placeInCartHandler(item.id)}>
         <View style={styles.priceInCartAndToFavoriteItem}>
           <Ionicons
             name="bag"
@@ -55,8 +55,8 @@ const ProductCard: React.FC<CardProps> = ({ item, placeInCartHandler, placeInFav
             color="#484848"/>
           <Text style={styles.priceInCartAndToFavoriteText}> В корзину</Text>
         </View>
-      </TouchableOpacity>
-      <TouchableOpacity onPress={() =>placeInFavoriteHandler(item.id)}>
+      </Pressable>
+      <Pressable onPress={() =>placeInFavoriteHandler(item.id)}>
         <View style={styles.priceInCartAndToFavoriteItem}>
           <Ionicons
             name="heart-outline"
@@ -64,7 +64,7 @@ const ProductCard: React.FC<CardProps> = ({ item, placeInCartHandler, placeInFav
             color="#484848"
           />
         </View>
-      </TouchableOpacity>
+      </Pressable>
       </View>
     </View>
   );
