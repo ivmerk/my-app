@@ -1,7 +1,8 @@
 import Logo from '@/components/logo';
+import React from 'react';
 import MobileStoriesList from '@/components/mobile-stories-list';
 import ProductCard from '@/components/product-card';
-import SearchProductField from '@/components/search-product-field';
+import SearchBar from '@/components/search-bar';
 import { GoodCards } from '@/mocks/data';
 import { Animated, StyleSheet,SafeAreaView, Dimensions, View } from 'react-native';
 
@@ -55,7 +56,7 @@ return (
       <Animated.View style={[styles.logo, {height:heightOfLogo, width: widthOfLogo}]}>
         <Logo />
       </Animated.View >
-        <SearchProductField/>
+        <SearchBar />
       </View>
       <Animated.View style={[styles.headerContainer, {height: heightOfSlider}]}>
         <MobileStoriesList/>
