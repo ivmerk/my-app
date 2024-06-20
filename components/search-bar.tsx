@@ -1,3 +1,4 @@
+import { Link, router } from "expo-router";
 import React, { useState } from "react";
 import { Text, TextInput, View, StyleSheet, Pressable } from "react-native";
 
@@ -5,21 +6,19 @@ import { Text, TextInput, View, StyleSheet, Pressable } from "react-native";
 export default function SearchBar() {
 const [inputText, setInputText] = useState('');
   return (
-    <Pressable onPress={() => console.log('press')}>
-    <View style={styles.container}>
-      {inputText === '' &&
-      (<Text style={styles.placeholder}>
-        <Text>🔍 Поиск товаров на</Text>
-        <Text style={{ fontWeight: 'bold' }}> HANTIFY</Text>
-      </Text>
-      )}
-      <TextInput
-        style={styles.input}
-        value={inputText}
-        onChangeText={setInputText}
-      />
-    </View>
-    </Pressable>
+      <Pressable style={styles.container} onPress={() => router.push('/search')}>
+        {inputText === '' &&
+        (<Text style={styles.placeholder}>
+          <Text>🔍 Поиск товаров на</Text>
+          <Text style={{ fontWeight: 'bold' }}> HANTIFY</Text>
+        </Text>
+        )}
+        <TextInput
+          style={styles.input}
+          value={inputText}
+          onChangeText={setInputText}
+        />
+      </Pressable>
   );
 }
 
