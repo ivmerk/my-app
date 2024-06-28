@@ -10,5 +10,27 @@ enum TermsOfDelivery {
   FIVE_SIX_DAYS = '5-6 дня',
   ONE_WEEK = '1 неделя',
 }
+enum TypesOfOffers {
+  ALL = 'all',
+  GOODS = 'goods',
+  SERVICES = 'services',
+}
 
-export { Availibility, TermsOfDelivery };
+const searchMenuItems = [
+  {
+    id: 1,
+    name: 'Товары',
+    list: 'goods',
+  },
+  {
+    id: 2,
+    name: 'Услуги',
+    list: 'services',
+  },
+]
+enum TypesOfSearchDisplay {
+  GOODS = 'goods',
+  CATEGORIES = 'categories',
+  ALL = 'all',
+}
+export { Availibility, searchMenuItems, TermsOfDelivery, TypesOfOffers, TypesOfSearchDisplay };

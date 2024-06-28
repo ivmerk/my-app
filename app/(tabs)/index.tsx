@@ -81,6 +81,13 @@ return (
 
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingHorizontal: '8%',
+    backgroundColor: 'white',
+  },
   headerContainer: {
     display: 'flex',
     flexDirection: 'row',
@@ -89,12 +96,6 @@ const styles = StyleSheet.create({
     height: '7%',
     backgroundColor: 'white',
     alignItems: 'center',
-  },
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    paddingHorizontal: '8%',
   },
   logo: {
   maxHeight:30,

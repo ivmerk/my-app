@@ -6,7 +6,8 @@ import { Text, TextInput, View, StyleSheet, Pressable } from "react-native";
 export default function SearchBar() {
 const [inputText, setInputText] = useState('');
   return (
-      <Pressable style={styles.container} onPress={() => router.push('/search')}>
+      <Pressable style={styles.container} onPress={() => {console.log('pressed');
+      router.push('/search')}}>
         {inputText === '' &&
         (<Text style={styles.placeholder}>
           <Text>🔍 Поиск товаров на</Text>
