@@ -1,4 +1,5 @@
 import SearchBar from '@/components/search-bar';
+import SearchList from '@/components/search-list';
 import { TypesOfSearchDisplay, searchMenuItems } from '@/constants/const.product';
 import { AntDesign } from '@expo/vector-icons';
 import { Stack, router } from 'expo-router';
@@ -58,7 +59,7 @@ const DisplaySearchList = ({kindOfItems, setGoodOrServicesListSwitcher, items}: 
                 setGoodOrServicesListSwitcher(item.list);
               }}>
               <View style={styles.menuItemContainer}>
-                <Text style={[styles.menuItemText, kindOfItems === item.list && styles.selectedMenuItemText]}>{item.name}</Text>
+                <Text style={[styles.menuItemText, kindOfItems === item.list && styles.selectedMenuItemText]}>  {item.name}  </Text>
               </View>
             </Pressable>
           );
@@ -66,7 +67,7 @@ const DisplaySearchList = ({kindOfItems, setGoodOrServicesListSwitcher, items}: 
       </View>
       <View>
         <View>
-          <Text style={styles.searchingCategoryMenuHeadText}>Часто ищут:</Text>
+          <SearchList title="Чвсто ищут"/>
         </View>
         <FlatList
           data={items}
@@ -80,45 +81,37 @@ const DisplaySearchList = ({kindOfItems, setGoodOrServicesListSwitcher, items}: 
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: '100%',
-    paddingHorizontal: '8%',
+    display: 'flex',
+    paddingHorizontal: '1%',
     backgroundColor: 'white',
   },
   headerContainer: {
     display: 'flex',
-    marginTop: '55%',
-    width: '100%',
+    marginTop: '15%',
     flexDirection: 'row',
-    backgroundColor: 'white',
-    alignItems: 'center',
   },
   menuListContainer: {
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-around',
-    width: '100%',
-    height: '7%',
-    backgroundColor: 'white',
     alignItems: 'center',
   },
   menuItemContainer: {
-    backgroundColor: 'white',
-    fontSize: 18,
+    display: 'flex',
+    flexDirection: 'row',
+    paddingTop: '5%',
   },
   menuItemText: {
     fontSize: 18,
+    marginHorizontal: '5%',
     fontWeight: 'bold',
-    paddingHorizontal: '10%',
     color: '#484848',
     opacity: 0.5,
   },
   selectedMenuItemText: {
     fontSize: 18,
+    marginHorizontal: '5%',
     color: '#484848',
-    paddingHorizontal: '10%',
     borderBottomColor: '#484848',
     borderBottomWidth: 1,
     opacity: 1,
