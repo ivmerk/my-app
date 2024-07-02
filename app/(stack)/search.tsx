@@ -2,8 +2,8 @@ import SearchBar from '@/components/search-bar';
 import SearchList from '@/components/search-list';
 import { TypesOfSearchDisplay, searchMenuItems } from '@/constants/const.product';
 import { AntDesign } from '@expo/vector-icons';
-import { Stack, router } from 'expo-router';
-import React, { useState } from 'react';
+import { router } from 'expo-router';
+import React, { useCallback, useState } from 'react';
 import { View, Text, FlatList, StyleSheet, Pressable } from 'react-native';
 interface Item {
   id: number
@@ -25,20 +25,13 @@ export default function Page() {
   const [goodOrServicesListSwitcher, setGoodOrServicesListSwitcher] = useState(searchMenuItems[0].list);
   const [goodsOrCategoriesListSwitcher, setGoodsOrCategoriesListSwitcher] = useState(TypesOfSearchDisplay.CATEGORIES);
 
-    if (goodOrServicesListSwitcher === searchMenuItems[0].list) {
    return   <DisplaySearchList
       kindOfItems={goodOrServicesListSwitcher}
       setGoodOrServicesListSwitcher={setGoodOrServicesListSwitcher}
-      items={goodSearchData}/>
-  } else if (goodOrServicesListSwitcher === searchMenuItems[1].list) {
-    return <DisplaySearchList
-      kindOfItems={goodOrServicesListSwitcher}
-      setGoodOrServicesListSwitcher={setGoodOrServicesListSwitcher}
-      items={servicesSearchData}/>
-  } 
+      items={goodOrServicesListSwitcher === searchMenuItems[0].list ? goodSearchData : servicesSearchData}/>
 }
 
-const DisplaySearchList = ({kindOfItems, setGoodOrServicesListSwitcher, items}: {kindOfItems: string, setGoodOrServicesListSwitcher : any, items: any}) => {
+const DisplaySearchList = ({kindOfItems, setGoodOrServicesListSwitcher , items}: {kindOfItems: string, setGoodOrServicesListSwitcher : any, items: any}) => {
   
   return (
     <View style={styles.container}>
@@ -55,9 +48,9 @@ const DisplaySearchList = ({kindOfItems, setGoodOrServicesListSwitcher, items}: 
           return (
             <Pressable
               key={item.id}
-              onPress={() => {
-                setGoodOrServicesListSwitcher(item.list);
-              }}>
+              onPress={
+                () => setGoodOrServicesListSwitcher(item.list)
+              }>
               <View style={styles.menuItemContainer}>
                 <Text style={[styles.menuItemText, kindOfItems === item.list && styles.selectedMenuItemText]}>  {item.name}  </Text>
               </View>
@@ -67,7 +60,7 @@ const DisplaySearchList = ({kindOfItems, setGoodOrServicesListSwitcher, items}: 
       </View>
       <View>
         <View>
-          <SearchList title="Чвсто ищут"/>
+          <SearchList title="Часто ищут"/>
         </View>
         <FlatList
           data={items}
