@@ -1,5 +1,5 @@
-import SearchBar from '@/components/search-bar';
-import SearchList from '@/components/search-list';
+import SearchBar from '@/components/search-bar/search-bar';
+import SearchList from '@/components/search-list/search-list';
 import { TypesOfSearchDisplay, searchMenuItems } from '@/constants/const.product';
 import { AntDesign } from '@expo/vector-icons';
 import { router } from 'expo-router';
@@ -38,10 +38,9 @@ const DisplaySearchList = ({kindOfItems, setGoodOrServicesListSwitcher , items}:
       <View style={styles.headerContainer}>
         <Pressable onPress={() => {console.log('Pressed'); router.back()}}>
           <AntDesign name="arrowleft" size={24} color="black" />
+          <Text style={{ marginLeft: '5%', fontWeight: 'bold', fontSize: 5 }}>НАЗАД</Text>
         </Pressable>
-        <View style={{flex: 1}}>
           <SearchBar/>
-        </View>
       </View>
       <View style={styles.menuListContainer}>
         {searchMenuItems.map((item) => {
@@ -75,7 +74,7 @@ const DisplaySearchList = ({kindOfItems, setGoodOrServicesListSwitcher , items}:
 const styles = StyleSheet.create({
   container: {
     display: 'flex',
-    paddingHorizontal: '1%',
+    paddingHorizontal: '2%',
     backgroundColor: 'white',
   },
   headerContainer: {
@@ -96,7 +95,7 @@ const styles = StyleSheet.create({
   },
   menuItemText: {
     fontSize: 18,
-    marginHorizontal: '5%',
+    marginHorizontal: '3%',
     fontWeight: 'bold',
     color: '#484848',
     opacity: 0.5,

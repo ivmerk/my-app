@@ -26,11 +26,12 @@ const [inputText, setInputText] = useState('');
 
 const styles = StyleSheet.create({
   container: {
-    display: 'flex',
+    flex: 1,
     flexDirection: 'row',
     justifyContent: 'center',
-    alignItems: 'flex-end',
-    marginLeft: 9,
+    alignItems: 'center',
+    marginRight: '5%',
+    marginLeft: '5%',
     borderBottomWidth: 1,
   },
   placeholder: {

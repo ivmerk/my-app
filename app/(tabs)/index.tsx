@@ -1,8 +1,8 @@
-import Logo from '@/components/logo';
+import Logo from '@/components/logo/logo';
 import React from 'react';
-import MobileStoriesList from '@/components/mobile-stories-list';
-import ProductCard from '@/components/product-card';
-import SearchBar from '@/components/search-bar';
+import MobileStoriesList from '@/components/mobile-stories-list/mobile-stories-list';
+import ProductCard from '@/components/product-card/product-card';
+import SearchBar from '@/components/search-bar/search-bar';
 import { GoodCards } from '@/mocks/data';
 import { Animated, StyleSheet,SafeAreaView, Dimensions, View } from 'react-native';
 
