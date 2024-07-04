@@ -1,6 +1,7 @@
 import SearchBar from '@/components/search-bar/search-bar';
-import SearchList from '@/components/search-list/search-list';
+import SearchRecommendationsList from '@/components/search-recommendations-list/search-recommendations-list';
 import { TypesOfSearchDisplay, searchMenuItems } from '@/constants/const.product';
+import { GoodCards } from '@/mocks/data';
 import { AntDesign } from '@expo/vector-icons';
 import { router } from 'expo-router';
 import React, { useCallback, useState } from 'react';
@@ -59,7 +60,22 @@ const DisplaySearchList = ({kindOfItems, setGoodOrServicesListSwitcher , items}:
       </View>
       <View>
         <View>
-          <SearchList title="Часто ищут"/>
+          <SearchRecommendationsList
+          title="Часто ищут:"
+          items={recommendationsData}
+          cards={null}
+          />
+          <SearchRecommendationsList
+          title="Найти в категории:"
+          items={categoriesData}
+          cards={null}
+          />
+          <SearchRecommendationsList
+          title="Популярные товары:"
+          items={null}
+          cards={GoodCards}
+          />
+
         </View>
         <FlatList
           data={items}
@@ -185,3 +201,17 @@ const categoriesData = [
   },
 ];
 
+const recommendationsData = [
+  {
+    id: 1,
+    name: 'Recommendation 1'
+  },
+  {
+    id: 2,
+    name: 'Recommendation 2'
+  },
+  {
+    id: 3,
+    name: 'Recommendation 3'
+  },
+]
