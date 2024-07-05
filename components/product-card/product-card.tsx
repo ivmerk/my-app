@@ -2,7 +2,7 @@ import { Product } from '@/types/product';
 import { Ionicons } from '@expo/vector-icons';
 import React from 'react';
 import { View, Text, StyleSheet, Pressable, Image, ImageBackground } from 'react-native';
-
+import InCartCardItem from '../incart-card-item/incart-card-item';
 interface CardProps {
   item: Product;
   placeInCartHandler: (id: string) => void;
@@ -47,15 +47,11 @@ const ProductCard: React.FC<CardProps> = ({ item, placeInCartHandler, placeInFav
         <View style={styles.priceInCartAndToFavoriteItem}>
           <Text style={styles.priceInCartAndToFavoriteText}>{item.price} ₽</Text>
         </View>
-      <Pressable onPress={() => placeInCartHandler(item.id)}>
-        <View style={styles.priceInCartAndToFavoriteItem}>
-          <Ionicons
-            name="bag"
-            size={20}
-            color="#484848"/>
-          <Text style={styles.priceInCartAndToFavoriteText}> В корзину</Text>
-        </View>
-      </Pressable>
+       <InCartCardItem 
+          id={item.id} 
+          placeInCartHandler={placeInCartHandler}
+          fontSize={18}
+          />
       <Pressable onPress={() =>placeInFavoriteHandler(item.id)}>
         <View style={styles.priceInCartAndToFavoriteItem}>
           <Ionicons
