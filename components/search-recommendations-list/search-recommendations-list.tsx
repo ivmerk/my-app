@@ -10,6 +10,7 @@ type SearchRecommendationsListPropsTypes = {
 }
 
 export default function SearchRecommendationsList({title, items, cards}: {title: string, items: SearchRecommendationsListPropsTypes[] | null, cards: Product[] | null} ) {
+  const placeInCartHandler = (id: string) => {};
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{title}</Text>
@@ -19,6 +20,7 @@ export default function SearchRecommendationsList({title, items, cards}: {title:
           cards.map((card) => 
           (<ProductSmallCard
             card={card}
+            placeInCartHandler={placeInCartHandler}
             key={card.id}/>))
         : 
           items && items.map((item) => (
@@ -34,12 +36,12 @@ export default function SearchRecommendationsList({title, items, cards}: {title:
 
 const styles = StyleSheet.create({
   container: {
+    paddingHorizontal: '10%',
   },
   title: {
     fontSize: 18,
     fontWeight: 'bold',
     marginTop: '1%',
-    paddingHorizontal: '10%',
     color: '#484848',
     textAlign: 'left',
   },
@@ -47,7 +49,6 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     fontSize: 16,
-    paddingHorizontal: '10%',
     color: '#484848',
     textAlign: 'left',
   },

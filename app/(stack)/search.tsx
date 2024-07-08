@@ -71,17 +71,12 @@ const DisplaySearchList = ({kindOfItems, setGoodOrServicesListSwitcher , items}:
           cards={null}
           />
           <SearchRecommendationsList
-          title="Популярные товары:"
+          title={kindOfItems === searchMenuItems[0].list ? "Популярные товары:" : "Популярные услуги:"}
           items={null}
           cards={GoodCards}
           />
 
         </View>
-        <FlatList
-          data={items}
-          renderItem={searchesItem}
-          keyExtractor={(item) => item.id.toString()}
-        />
       </View>
     </View>
   )

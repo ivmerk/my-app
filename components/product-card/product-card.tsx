@@ -4,13 +4,14 @@ import React from 'react';
 import { View, Text, StyleSheet, Pressable, ImageBackground } from 'react-native';
 import InCartCardItem from '../incart-card-item/incart-card-item';
 import { PriceCardItem } from '../price-card-item/price-card-item';
-interface CardProps {
+
+interface ProductCardProps {
   item: Product;
   placeInCartHandler: (id: string) => void;
   placeInFavoriteHandler: (id: string) => void;
 }
 
-const ProductCard: React.FC<CardProps> = ({ item, placeInCartHandler, placeInFavoriteHandler}) => {
+const ProductCard: React.FC<ProductCardProps> = ({ item, placeInCartHandler, placeInFavoriteHandler}) => {
   return (
     <View style={styles.card}>
       <ImageBackground
