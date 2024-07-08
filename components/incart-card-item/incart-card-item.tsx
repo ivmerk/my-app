@@ -10,12 +10,12 @@ interface InCartCardItemProps {
 export default function InCartCardItem({id,placeInCartHandler, fontSize}: InCartCardItemProps) {
   return (
       <Pressable onPress={() => placeInCartHandler(id)}>
-        <View style={styles.priceInCartAndToFavoriteItem}>
+        <View style={styles.container}>
           <Ionicons
             name="bag"
             size={fontSize + 2}
             color="#484848"/>
-          <Text style={[styles.priceInCartAndToFavoriteText, {fontSize}]}> В корзину</Text>
+          <Text style={[styles.inCartAndToFavoriteText, {fontSize}]}> В корзину</Text>
         </View>
       </Pressable>
   );
@@ -23,12 +23,6 @@ export default function InCartCardItem({id,placeInCartHandler, fontSize}: InCart
 
 const styles = StyleSheet.create({
   container: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginTop: 12,
-  },
-  priceInCartAndToFavoriteItem:{
     display: 'flex',
     height: 40,
     paddingTop: 8, 
@@ -39,7 +33,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#d9d9d9',
   },
-  priceInCartAndToFavoriteText: {
+  inCartAndToFavoriteText: {
     fontWeight: 'bold',
     marginLeft: 4,
     color: '#484848',

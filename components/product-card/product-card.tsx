@@ -1,8 +1,9 @@
 import { Product } from '@/types/product';
 import { Ionicons } from '@expo/vector-icons';
 import React from 'react';
-import { View, Text, StyleSheet, Pressable, Image, ImageBackground } from 'react-native';
+import { View, Text, StyleSheet, Pressable, ImageBackground } from 'react-native';
 import InCartCardItem from '../incart-card-item/incart-card-item';
+import { PriceCardItem } from '../price-card-item/price-card-item';
 interface CardProps {
   item: Product;
   placeInCartHandler: (id: string) => void;
@@ -44,16 +45,18 @@ const ProductCard: React.FC<CardProps> = ({ item, placeInCartHandler, placeInFav
         <Text style={styles.boldingText}>{item.description}</Text>
       </View>
       <View style={styles.priceInCartAndToFavoriteContainer}>
-        <View style={styles.priceInCartAndToFavoriteItem}>
-          <Text style={styles.priceInCartAndToFavoriteText}>{item.price} ₽</Text>
-        </View>
+        <PriceCardItem
+          id={item.id}
+          price={item.price}
+          fontSize={18}
+        />
        <InCartCardItem 
           id={item.id} 
           placeInCartHandler={placeInCartHandler}
           fontSize={18}
           />
       <Pressable onPress={() =>placeInFavoriteHandler(item.id)}>
-        <View style={styles.priceInCartAndToFavoriteItem}>
+        <View style={styles.favoriteItem}>
           <Ionicons
             name="heart-outline"
             size={25}
@@ -139,7 +142,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     marginTop: 12,
   },
-  priceInCartAndToFavoriteItem:{
+  favoriteItem:{
     display: 'flex',
     height: 40,
     paddingTop: 8, 
@@ -150,13 +153,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#d9d9d9',
   },
-  priceInCartAndToFavoriteText: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    marginLeft: 4,
-    color: '#484848',
-    
-  }
 });
 
 export default ProductCard;
