@@ -3,9 +3,10 @@ import { Stack } from 'expo-router/stack';
 
 export default function Layout() {
   return (
-    <Stack>
-      <Stack.Screen name="(tabs)" options={{ headerShown: false }} /> 
-      <Stack.Screen name="(stack)" options={{ headerShown: false }} />
+    <Stack screenOptions={{ headerShown: false }}> 
+      <Stack.Screen name="(app)"  /> 
+      <Stack.Screen name="(stack)" />
+      <Stack.Screen name="card" /> 
       <Stack.Screen name="+not-found" />
     </Stack>
   );

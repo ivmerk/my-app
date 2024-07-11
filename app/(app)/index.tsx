@@ -5,17 +5,25 @@ import ProductCard from '@/components/product-card/product-card';
 import SearchBar from '@/components/search-bar/search-bar';
 import { GoodCards } from '@/mocks/data';
 import { Animated, StyleSheet,SafeAreaView, Dimensions, View } from 'react-native';
+import { router } from 'expo-router';
 
 
 const {height, width}= Dimensions.get('window'); 
 
 export default function Tab() {
+
+const touchCardHandler = (id: string) => {
+  console.log(id)
+    router.push('/card')
+}
+
 const placeInCartHandler = (id: string) => {
   console.log(id)
 }
 
 const placeInFavoriteHandler = (id: string) => {
   console.log(id)
+    
 }
 
 const scrollY = new Animated.Value(0)
@@ -66,6 +74,7 @@ return (
         renderItem={({ item }) => 
           <ProductCard
             item={item} 
+            touchCardHandler={touchCardHandler}
             placeInCartHandler={placeInCartHandler} 
             placeInFavoriteHandler={placeInFavoriteHandler}
           />}

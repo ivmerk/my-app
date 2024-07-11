@@ -7,12 +7,15 @@ import { PriceCardItem } from '../price-card-item/price-card-item';
 
 interface ProductCardProps {
   item: Product;
+  touchCardHandler: (id: string) => void;
   placeInCartHandler: (id: string) => void;
   placeInFavoriteHandler: (id: string) => void;
+
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({ item, placeInCartHandler, placeInFavoriteHandler}) => {
+const ProductCard: React.FC<ProductCardProps> = ({ item, touchCardHandler, placeInCartHandler, placeInFavoriteHandler}) => {
   return (
+  <Pressable onPress={() => touchCardHandler(item.id)}>
     <View style={styles.card}>
       <ImageBackground
         source={{ uri: item.image }}
@@ -51,7 +54,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ item, placeInCartHandler, pla
           price={item.price}
           fontSize={18}
         />
-       <InCartCardItem 
+        <InCartCardItem 
           id={item.id} 
           placeInCartHandler={placeInCartHandler}
           fontSize={18}
@@ -67,6 +70,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ item, placeInCartHandler, pla
       </Pressable>
       </View>
     </View>
+  </Pressable>
   );
 };
 
