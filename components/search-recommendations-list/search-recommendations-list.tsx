@@ -16,17 +16,17 @@ export default function SearchRecommendationsList({title, items, cards}: {title:
       <Text style={styles.title}>{title}</Text>
       {
         cards && cards
-        ? 
+          ? 
           cards.map((card) => 
-          (<ProductSmallCard
-            card={card}
-            placeInCartHandler={placeInCartHandler}
-            key={card.id}/>))
-        : 
+            (<ProductSmallCard
+              card={card}
+              placeInCartHandler={placeInCartHandler}
+              key={card.id}/>))
+          : 
           items && items.map((item) => (
             <View style={styles.item} key={item.id}>
-            <AntDesign name="search1" size={16} color="#484848" />
-            <Text> {item.name}</Text>
+              <AntDesign name="search1" size={16} color="#484848" />
+              <Text> {item.name}</Text>
             </View>))
       }
     </View>

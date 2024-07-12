@@ -8,6 +8,7 @@ export default function CardLayout() {
     <Tabs.Screen
         name="EmptyComponent"
         options={{
+          title: 'Назад',
           tabBarIcon: ({ color }) => <FontAwesome size={28} name="chevron-left" color={color} />,
         }}
         listeners={({ navigation }) => ({
@@ -18,17 +19,18 @@ export default function CardLayout() {
         })}
     />
     <Tabs.Screen
-        name="index"
+        name="mail"
         options={{
-          title: "Home" 
+          title: "Почта", 
+          tabBarIcon: ({ color }) => <FontAwesome size={28} name="envelope" color={color} />,
         }} />
-      {/* Add more tabs here
-   <Tabs.Screen 
-        name="search"
+    <Tabs.Screen 
+        name="index"
         options={{ 
-          title: "Search" 
-        }} />
-      */}
+          title: "Наверх",
+          tabBarIcon: ({ color }) => <FontAwesome size={28} name="envelope" color={color} />,
+        }} 
+    />
   </Tabs>
   )
 }

@@ -12,58 +12,58 @@ const {height, width}= Dimensions.get('window');
 
 export default function Tab() {
 
-const touchCardHandler = (id: string) => {
-  console.log(id)
+  const touchCardHandler = (id: string) => {
+    console.log(id)
     router.push('/card')
-}
+  }
 
-const placeInCartHandler = (id: string) => {
-  console.log(id)
-}
+  const placeInCartHandler = (id: string) => {
+    console.log(id)
+  }
 
-const placeInFavoriteHandler = (id: string) => {
-  console.log(id)
-    
-}
+  const placeInFavoriteHandler = (id: string) => {
+    console.log(id)
 
-const scrollY = new Animated.Value(0)
-const translateY = scrollY.interpolate({
-  inputRange: [0, 50],
-  outputRange: [0, 50],
-  extrapolate: 'clamp',
-})
-const opacity = scrollY.interpolate({
-  inputRange: [0, 50],
-  outputRange: [1, 0],
-  extrapolate: 'clamp',
-})
+  }
 
-const maxHeightOfLogo = 5 * height / 100;
-const heightOfLogo = scrollY.interpolate({
-  inputRange: [0, maxHeightOfLogo],
-  outputRange: [maxHeightOfLogo, 0],
-  extrapolate: 'clamp',
-})
-const maxWidthOfLogo = 4.5 * width / 100; 
-const widthOfLogo = scrollY.interpolate({
-  inputRange: [0, maxWidthOfLogo],
-  outputRange: [maxWidthOfLogo, 0],
-  extrapolate: 'clamp',
-})
+  const scrollY = new Animated.Value(0)
+  const translateY = scrollY.interpolate({
+    inputRange: [0, 50],
+    outputRange: [0, 50],
+    extrapolate: 'clamp',
+  })
+  const opacity = scrollY.interpolate({
+    inputRange: [0, 50],
+    outputRange: [1, 0],
+    extrapolate: 'clamp',
+  })
+
+  const maxHeightOfLogo = 5 * height / 100;
+  const heightOfLogo = scrollY.interpolate({
+    inputRange: [0, maxHeightOfLogo],
+    outputRange: [maxHeightOfLogo, 0],
+    extrapolate: 'clamp',
+  })
+  const maxWidthOfLogo = 4.5 * width / 100; 
+  const widthOfLogo = scrollY.interpolate({
+    inputRange: [0, maxWidthOfLogo],
+    outputRange: [maxWidthOfLogo, 0],
+    extrapolate: 'clamp',
+  })
 
 
-const maxHeightOfSlider =  10 * height / 100;
-const heightOfSlider = scrollY.interpolate({
-  inputRange: [0, maxHeightOfSlider],
-  outputRange: [maxHeightOfSlider, 0],
-  extrapolate: 'clamp',
-})
-return ( 
-  <SafeAreaView style={styles.container}>
+  const maxHeightOfSlider =  10 * height / 100;
+  const heightOfSlider = scrollY.interpolate({
+    inputRange: [0, maxHeightOfSlider],
+    outputRange: [maxHeightOfSlider, 0],
+    extrapolate: 'clamp',
+  })
+  return ( 
+    <SafeAreaView style={styles.container}>
       <View style={styles.headerContainer}>
-      <Animated.View style={[styles.logo, {height:heightOfLogo, width: widthOfLogo}]}>
-        <Logo />
-      </Animated.View >
+        <Animated.View style={[styles.logo, {height:heightOfLogo, width: widthOfLogo}]}>
+          <Logo />
+        </Animated.View >
         <SearchBar />
       </View>
       <Animated.View style={[styles.headerContainer, {height: heightOfSlider}]}>
@@ -84,7 +84,7 @@ return (
           { useNativeDriver: false }
         )}
       />
-  </SafeAreaView>
+    </SafeAreaView>
   );
 }
 
@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   logo: {
-  maxHeight:30,
+    maxHeight:30,
     maxWidth:28,
   },
   scrollView: {

@@ -15,62 +15,62 @@ interface ProductCardProps {
 
 const ProductCard: React.FC<ProductCardProps> = ({ item, touchCardHandler, placeInCartHandler, placeInFavoriteHandler}) => {
   return (
-  <Pressable onPress={() => touchCardHandler(item.id)}>
-    <View style={styles.card}>
-      <ImageBackground
-        source={{ uri: item.image }}
-        style={styles.imageBackground}>
-        <View style={styles.favoriteIconBlock}>
-          <Ionicons
-            name="heart-outline"
-            size={30}
-            color="#484848"
+    <Pressable onPress={() => touchCardHandler(item.id)}>
+      <View style={styles.card}>
+        <ImageBackground
+          source={{ uri: item.image }}
+          style={styles.imageBackground}>
+          <View style={styles.favoriteIconBlock}>
+            <Ionicons
+              name="heart-outline"
+              size={30}
+              color="#484848"
+            />
+          </View>
+        </ImageBackground>
+        <View style={styles.isAvailableAndTermsListContainer}>
+          <View style={styles.isAvailableAndTermsItemContainer}>
+            <Text style={styles.isAvailableAndTermsItemText}>{item.availability}</Text>
+          </View>
+          <View style={styles.isAvailableAndTermsItemContainer}>
+            <Text style={styles.isAvailableAndTermsItemText}>{item.termsOfDelivery}</Text>
+          </View>
+        </View>
+        <View style={styles.ratingContainer}>
+          <Ionicons 
+            name="star"
+            size={20}
+            color="#484848" />
+          <Text style={styles.boldingText}>{item.rating}</Text>
+          <Text style={styles.ligthText}>/{item.comments.length} отзывов/{item.selesQty} продаж</Text>
+        </View>
+        <View style={styles.categoryTitleAndDescriptionContainer}>
+          <Text style={styles.boldingText}>{item.category}: {item.title}</Text>
+          <Text style={styles.boldingText}>{item.description}</Text>
+        </View>
+        <View style={styles.priceInCartAndToFavoriteContainer}>
+          <PriceCardItem
+            id={item.id}
+            price={item.price}
+            fontSize={18}
           />
-        </View>
-      </ImageBackground>
-      <View style={styles.isAvailableAndTermsListContainer}>
-        <View style={styles.isAvailableAndTermsItemContainer}>
-          <Text style={styles.isAvailableAndTermsItemText}>{item.availability}</Text>
-        </View>
-        <View style={styles.isAvailableAndTermsItemContainer}>
-          <Text style={styles.isAvailableAndTermsItemText}>{item.termsOfDelivery}</Text>
-        </View>
-      </View>
-      <View style={styles.ratingContainer}>
-        <Ionicons 
-          name="star"
-          size={20}
-          color="#484848" />
-        <Text style={styles.boldingText}>{item.rating}</Text>
-        <Text style={styles.ligthText}>/{item.comments.length} отзывов/{item.selesQty} продаж</Text>
-      </View>
-      <View style={styles.categoryTitleAndDescriptionContainer}>
-        <Text style={styles.boldingText}>{item.category}: {item.title}</Text>
-        <Text style={styles.boldingText}>{item.description}</Text>
-      </View>
-      <View style={styles.priceInCartAndToFavoriteContainer}>
-        <PriceCardItem
-          id={item.id}
-          price={item.price}
-          fontSize={18}
-        />
-        <InCartCardItem 
-          id={item.id} 
-          placeInCartHandler={placeInCartHandler}
-          fontSize={18}
+          <InCartCardItem 
+            id={item.id} 
+            placeInCartHandler={placeInCartHandler}
+            fontSize={18}
           />
-      <Pressable onPress={() =>placeInFavoriteHandler(item.id)}>
-        <View style={styles.favoriteItem}>
-          <Ionicons
-            name="heart-outline"
-            size={25}
-            color="#484848"
-          />
+          <Pressable onPress={() =>placeInFavoriteHandler(item.id)}>
+            <View style={styles.favoriteItem}>
+              <Ionicons
+                name="heart-outline"
+                size={25}
+                color="#484848"
+              />
+            </View>
+          </Pressable>
         </View>
-      </Pressable>
       </View>
-    </View>
-  </Pressable>
+    </Pressable>
   );
 };
 
@@ -130,7 +130,7 @@ const styles = StyleSheet.create({
     fontWeight: 'light',
     marginLeft: 4,
     color: '#484848',
-    
+
   },
   boldingText: {
     fontSize: 16,
