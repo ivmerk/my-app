@@ -13,16 +13,15 @@ export default function CardLayout() {
         name="homeScreen"
         options={{
           title: "Назад",
-          tabBarButton: (props) => (
-            <Pressable
-              {...props}
-              onPress={() => navigation.goBack()}
-              style={{ justifyContent: 'center', alignItems: 'center' }}
-            >
-              <FontAwesome size={28} name="chevron-left" color="#484848" />
-              <Text style={{ color: '#484848' }}>Tab 1</Text>
-            </Pressable>
-          )
+          tabBarIcon: ({ color }) => 
+              <Pressable
+                onPress={() => {
+                  console.log("Pressed");
+                  navigation.goBack();
+                }}
+              >
+              <FontAwesome size={28} name="chevron-left" color={color}/> 
+              </Pressable>
         }}
       />
 
