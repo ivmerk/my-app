@@ -24,7 +24,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="favourites"
         options={{
-          title: 'Избранное',
+         title: 'Избранное',
           tabBarIcon: ({ color }) => <FontAwesome size={28} name="heart" color={color} />,
           headerShown: false,
         }}
