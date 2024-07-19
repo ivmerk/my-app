@@ -3,7 +3,15 @@ export const GoodCards = [
     id: "1",
     title: "Good title 1",
     description: "Good description 1",
-    image: "https://picsum.photos/200/300",
+    media: {
+      images: [
+        {
+          url: "https://00.img.avito.st/image/1/1.O6J6QLa4l0tM6VVOAAgvonPilU3E4RVDDOSVScrpn0HM.gptjdvStp7t7t_2Z8IhdRr6KGAwsBsyv2-B8zNAQM7k",
+          mediaType: 0
+        }
+      ],
+      video: []
+    },
     availability: "В наличии",
     price: 100,
     isFavorite: true,
@@ -24,7 +32,15 @@ export const GoodCards = [
     id: "2",
     title: "Good title 2",
     description: "Good description 1",
-    image: "https://picsum.photos/200/300",
+    media: {
+      images: [
+        {
+          url: "https://00.img.avito.st/image/1/1.O6J6QLa4l0tM6VVOAAgvonPilU3E4RVDDOSVScrpn0HM.gptjdvStp7t7t_2Z8IhdRr6KGAwsBsyv2-B8zNAQM7k",
+          mediaType: 0
+        }
+      ],
+      video: []
+    },
     availability: "В наличии",
     price: 100,
     isFavorite: true,
@@ -45,7 +61,15 @@ export const GoodCards = [
     id: "3",
     title: "Good title 3",
     description: "Good description 1",
-    image: "https://picsum.photos/200/300",
+    media: {
+      images: [
+        {
+          url: "https://00.img.avito.st/image/1/1.O6J6QLa4l0tM6VVOAAgvonPilU3E4RVDDOSVScrpn0HM.gptjdvStp7t7t_2Z8IhdRr6KGAwsBsyv2-B8zNAQM7k",
+          mediaType: 0
+        }
+      ],
+      video: []
+    },
     availability: "В наличии",
     price: 100,
     isFavorite: true,
@@ -66,7 +90,15 @@ export const GoodCards = [
     id: "4",
     title: "Good title 4",
     description: "Good description 1",
-    image: "https://picsum.photos/200/300",
+    media: {
+      images: [
+        {
+          url: "https://00.img.avito.st/image/1/1.O6J6QLa4l0tM6VVOAAgvonPilU3E4RVDDOSVScrpn0HM.gptjdvStp7t7t_2Z8IhdRr6KGAwsBsyv2-B8zNAQM7k",
+          mediaType: 0
+        }
+      ],
+      video: []
+    },
     availability: "В наличии",
     price: 100,
     isFavorite: true,

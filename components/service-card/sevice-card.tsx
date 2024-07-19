@@ -1,9 +1,12 @@
 import * as React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { ShieldTick, UserCircleLight } from "../svg-const/svg-const";
+import { ServiceList } from "@/mocks/serviceList";
+
 
 
 export default function ServiceCard() {
+const serviceItem = ServiceList[0];
   return (
     <View style={styles.container}>
       <View style={styles.sellerImageAndTitleItem}>
@@ -16,6 +19,9 @@ export default function ServiceCard() {
           </View>
         </View>
       </View>
+      <View style={styles.cardContainer}>
+      
+      </View> 
     </View>  );
 }
 
@@ -51,5 +57,12 @@ const styles = StyleSheet.create({
     color: "# 484848",
     fontSize: 14,
     lineHeight: 20,
+  },
+  cardContainer: {
+    display: "flex",
+    flexDirection: "column",
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "flex-start",
   },
 });

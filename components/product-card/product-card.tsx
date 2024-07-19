@@ -4,6 +4,7 @@ import React from 'react';
 import { View, Text, StyleSheet, Pressable, ImageBackground } from 'react-native';
 import InCartCardItem from '../incart-card-item/incart-card-item';
 import { PriceCardItem } from '../price-card-item/price-card-item';
+import ProductServiceCardPicture from '../product-service-card-picture/product-service-card-picture';
 
 interface ProductCardProps {
   item: Product;
@@ -15,19 +16,12 @@ interface ProductCardProps {
 
 const ProductCard: React.FC<ProductCardProps> = ({ item, touchCardHandler, placeInCartHandler, placeInFavoriteHandler}) => {
   return (
-    <Pressable onPress={() => touchCardHandler(item.id)}>
+    <Pressable onPress={() => touchCardHandler(item.id.toString())}>
       <View style={styles.card}>
-        <ImageBackground
-          source={{ uri: item.image }}
-          style={styles.imageBackground}>
-          <View style={styles.favoriteIconBlock}>
-            <Ionicons
-              name="heart-outline"
-              size={30}
-              color="#484848"
-            />
-          </View>
-        </ImageBackground>
+        <ProductServiceCardPicture
+          uri={item.media.images[0].url}
+          isFavorite={item.isFavorite}
+        />
         <View style={styles.isAvailableAndTermsListContainer}>
           <View style={styles.isAvailableAndTermsItemContainer}>
             <Text style={styles.isAvailableAndTermsItemText}>{item.availability}</Text>
@@ -45,21 +39,21 @@ const ProductCard: React.FC<ProductCardProps> = ({ item, touchCardHandler, place
           <Text style={styles.ligthText}>/{item.comments.length} отзывов/{item.selesQty} продаж</Text>
         </View>
         <View style={styles.categoryTitleAndDescriptionContainer}>
-          <Text style={styles.boldingText}>{item.category}: {item.title}</Text>
+          <Text style={styles.boldingText}>{item.category.name}: {item.title}</Text>
           <Text style={styles.boldingText}>{item.description}</Text>
         </View>
         <View style={styles.priceInCartAndToFavoriteContainer}>
           <PriceCardItem
-            id={item.id}
+            id={item.id.toString()}
             price={item.price}
             fontSize={18}
           />
           <InCartCardItem 
-            id={item.id} 
+            id={item.id.toString()} 
             placeInCartHandler={placeInCartHandler}
             fontSize={18}
           />
-          <Pressable onPress={() =>placeInFavoriteHandler(item.id)}>
+          <Pressable onPress={() =>placeInFavoriteHandler(item.id.toString())}>
             <View style={styles.favoriteItem}>
               <Ionicons
                 name="heart-outline"
