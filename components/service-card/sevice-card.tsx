@@ -1,12 +1,15 @@
 import * as React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, ImageBackground } from "react-native";
 import { ShieldTick, UserCircleLight } from "../svg-const/svg-const";
 import { ServiceList } from "@/mocks/serviceList";
+import ProductServiceCardPicture from "../product-service-card-picture/product-service-card-picture";
+import PhoneCallItem from "../phone-call-item/phone-call-item";
+import PlaceInFavoriteItem from "../place-in-favorite-item/place-in-favorite-item";
 
 
 
 export default function ServiceCard() {
-const serviceItem = ServiceList[0];
+  const serviceItem = ServiceList[0];
   return (
     <View style={styles.container}>
       <View style={styles.sellerImageAndTitleItem}>
@@ -14,14 +17,31 @@ const serviceItem = ServiceList[0];
         <View style={styles.sellerTitleItem}>
           <Text>Иван Меркулов</Text>
           <View style={{ display: "flex", flexDirection: "row" }}>
-          <ShieldTick/>
-          <Text style={styles.sellerConfirmedText}>Паспорт проверен</Text>
+            <ShieldTick/>
+            <Text style={styles.sellerConfirmedText}>Паспорт проверен</Text>
           </View>
         </View>
       </View>
       <View style={styles.cardContainer}>
-      
-      </View> 
+        <ProductServiceCardPicture
+          uri={serviceItem.media.images[0].url}
+          isFavorite={serviceItem.isFavorite}
+        />
+        <Text style={styles.titleTextItem}>{serviceItem.title}</Text>
+        <View style= {styles.servicePriceContainer}>
+          <Text style={styles.servicePriceText}>
+            от {serviceItem.price} ₽
+          </Text>
+          <Text style={[styles.servicePriceText, {fontWeight: "regular"}]}> / за час</Text>
+        </View>
+        <View style={styles.callingWritingInFavoriteContainer}>
+          <PhoneCallItem/>
+          <PlaceInFavoriteItem
+            id={serviceItem.id.toString()}
+            placeInFavoriteHandler={() => {}}
+          />
+        </View> 
+    </View>  
     </View>  );
 }
 
@@ -32,6 +52,8 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     backgroundColor: "#fff",
     justifyContent: "flex-start",
+    paddingHorizontal: '8%',
+    marginVertical: 8,
   },
   sellerImageAndTitleItem: {
     display: "flex",
@@ -62,7 +84,30 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "column",
     backgroundColor: "#fff",
-    alignItems: "center",
+    alignItems: "flex-start",
     justifyContent: "flex-start",
+  },
+  titleTextItem: {
+    color: "# 484848",
+    fontSize: 16,
+    fontWeight: "bold",
+    lineHeight: 22,
+  },
+  servicePriceContainer:{
+    display: "flex", 
+    flexDirection: "row", 
+    justifyContent: "flex-start",
+    width: "100%" },
+  servicePriceText: {
+    color: "# 484848",
+    fontSize: 24,
+    fontWeight: "bold",
+    lineHeight: 26,
+  },
+  callingWritingInFavoriteContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: 12,
   },
 });

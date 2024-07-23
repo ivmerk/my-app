@@ -28,5 +28,5 @@ export type Product = {
   comments: Comment[];
   termsOfDelivery: string;
   category: Category;
-  selesQty: number;
+  salesQty: number;
 };

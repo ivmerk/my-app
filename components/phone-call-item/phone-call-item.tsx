@@ -1,10 +1,10 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 
-export function PriceCardItem({price, fontSize}: {price: number, fontSize:number}) {
+export default function PhoneCallItem() {
   return (
     <View style={styles.container}>
-      <Text style={[styles.inCartAndToFavoriteText, {fontSize}]}>{price} ₽</Text>
+      <Text style={styles.itemText}>PhoneCallItem</Text>
     </View>
   );
 }
@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#d9d9d9',
   },
-  inCartAndToFavoriteText: {
+  itemText: {
     fontWeight: 'bold',
     marginLeft: 4,
     color: '#484848',

@@ -5,6 +5,7 @@ import { View, Text, StyleSheet, Pressable, ImageBackground } from 'react-native
 import InCartCardItem from '../incart-card-item/incart-card-item';
 import { PriceCardItem } from '../price-card-item/price-card-item';
 import ProductServiceCardPicture from '../product-service-card-picture/product-service-card-picture';
+import PlaceInFavoriteItem from '../place-in-favorite-item/place-in-favorite-item';
 
 interface ProductCardProps {
   item: Product;
@@ -36,7 +37,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ item, touchCardHandler, place
             size={20}
             color="#484848" />
           <Text style={styles.boldingText}>{item.rating}</Text>
-          <Text style={styles.ligthText}>/{item.comments.length} отзывов/{item.selesQty} продаж</Text>
+          <Text style={styles.lightText}>/{item.comments.length} отзывов/{item.salesQty} продаж</Text>
         </View>
         <View style={styles.categoryTitleAndDescriptionContainer}>
           <Text style={styles.boldingText}>{item.category.name}: {item.title}</Text>
@@ -44,7 +45,6 @@ const ProductCard: React.FC<ProductCardProps> = ({ item, touchCardHandler, place
         </View>
         <View style={styles.priceInCartAndToFavoriteContainer}>
           <PriceCardItem
-            id={item.id.toString()}
             price={item.price}
             fontSize={18}
           />
@@ -53,15 +53,10 @@ const ProductCard: React.FC<ProductCardProps> = ({ item, touchCardHandler, place
             placeInCartHandler={placeInCartHandler}
             fontSize={18}
           />
-          <Pressable onPress={() =>placeInFavoriteHandler(item.id.toString())}>
-            <View style={styles.favoriteItem}>
-              <Ionicons
-                name="heart-outline"
-                size={25}
-                color="#484848"
-              />
-            </View>
-          </Pressable>
+          <PlaceInFavoriteItem
+            id={item.id.toString()}
+            placeInFavoriteHandler={placeInFavoriteHandler}
+          />
         </View>
       </View>
     </Pressable>
@@ -119,7 +114,7 @@ const styles = StyleSheet.create({
     marginTop: 4,
     marginBottom: 8,
   },
-  ligthText: {
+  lightText: {
     fontSize: 16,
     fontWeight: 'light',
     marginLeft: 4,

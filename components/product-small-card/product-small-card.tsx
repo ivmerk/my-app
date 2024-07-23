@@ -18,12 +18,11 @@ export default function ProductSmallCard({card, placeInCartHandler}: CardProps) 
         <Text style={styles.description}>{card.description}</Text>
         <View style={styles.priceAndInCartContainer}>
           <PriceCardItem
-            id={card.id}
             price={card.price}
             fontSize={12}
           />
           <InCartCardItem
-            id={card.id}
+            id={card.id.toString()}
             placeInCartHandler={placeInCartHandler}
             fontSize={12}
           />
