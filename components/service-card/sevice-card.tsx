@@ -6,6 +6,9 @@ import ProductServiceCardPicture from "../product-service-card-picture/product-s
 import PlaceInFavoriteItem from "../place-in-favorite-item/place-in-favorite-item";
 import CallToSellerItem from "../call-to-seller-item/call-to-seller-item";
 import WriteToSellerItem from "../write-to-seller-item/write-to-seller-item";
+import MapOnCardItem from "../map-on-card-item/map-on-card-item";
+import ServiceDescriptionOnCardItem from "../service-description-on-card-item/service-descripton-on-card-item";
+import PriceListOnCardItem from "../price-list-on-card-item/price-list-on-card-item";
 
 
 
@@ -43,7 +46,10 @@ export default function ServiceCard() {
             placeInFavoriteHandler={() => {}}
           />
         </View> 
-    </View>  
+      </View>  
+      <MapOnCardItem/>
+      <ServiceDescriptionOnCardItem/>
+      <PriceListOnCardItem/>
     </View>  );
 }
 
