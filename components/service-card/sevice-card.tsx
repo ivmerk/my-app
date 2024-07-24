@@ -1,10 +1,11 @@
 import * as React from "react";
-import { View, Text, StyleSheet, ImageBackground } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import { ShieldTick, UserCircleLight } from "../svg-const/svg-const";
 import { ServiceList } from "@/mocks/serviceList";
 import ProductServiceCardPicture from "../product-service-card-picture/product-service-card-picture";
-import PhoneCallItem from "../phone-call-item/phone-call-item";
 import PlaceInFavoriteItem from "../place-in-favorite-item/place-in-favorite-item";
+import CallToSellerItem from "../call-to-seller-item/call-to-seller-item";
+import WriteToSellerItem from "../write-to-seller-item/write-to-seller-item";
 
 
 
@@ -35,7 +36,8 @@ export default function ServiceCard() {
           <Text style={[styles.servicePriceText, {fontWeight: "regular"}]}> / за час</Text>
         </View>
         <View style={styles.callingWritingInFavoriteContainer}>
-          <PhoneCallItem/>
+          <CallToSellerItem/>
+          <WriteToSellerItem/>
           <PlaceInFavoriteItem
             id={serviceItem.id.toString()}
             placeInFavoriteHandler={() => {}}
@@ -84,7 +86,6 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "column",
     backgroundColor: "#fff",
-    alignItems: "flex-start",
     justifyContent: "flex-start",
   },
   titleTextItem: {

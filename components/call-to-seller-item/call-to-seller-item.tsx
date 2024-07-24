@@ -1,10 +1,12 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
+import { CallingTube } from "../svg-const/svg-const";
 
-export default function PhoneCallItem() {
+export default function CallToSellerItem() {
   return (
     <View style={styles.container}>
-      <Text style={styles.itemText}>PhoneCallItem</Text>
+      <CallingTube />
+      <Text style={styles.itemText}>Позвонить</Text>
     </View>
   );
 }
@@ -19,12 +21,12 @@ const styles = StyleSheet.create({
     paddingRight: 12,
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#d9d9d9',
+    backgroundColor: '#484848',
   },
   itemText: {
     fontWeight: 'bold',
     marginLeft: 4,
-    color: '#484848',
+    color: '#fff',
     
   }
 });
