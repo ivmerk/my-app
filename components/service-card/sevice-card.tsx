@@ -1,5 +1,5 @@
 import * as React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import {SafeAreaView, ScrollView, View, Text, StyleSheet } from "react-native";
 import { ShieldTick, UserCircleLight } from "../svg-const/svg-const";
 import { ServiceList } from "@/mocks/serviceList";
 import ProductServiceCardPicture from "../product-service-card-picture/product-service-card-picture";
@@ -13,9 +13,10 @@ import PriceListOnCardItem from "../price-list-on-card-item/price-list-on-card-i
 
 
 export default function ServiceCard() {
-  const serviceItem = ServiceList[0];
+  const serviceItem = ServiceList[1];
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
+    <ScrollView style={styles.scrollView}>
       <View style={styles.sellerImageAndTitleItem}>
         <UserCircleLight />
         <View style={styles.sellerTitleItem}>
@@ -48,18 +49,20 @@ export default function ServiceCard() {
         </View> 
       </View>  
       <MapOnCardItem/>
-      <ServiceDescriptionOnCardItem/>
+      <ServiceDescriptionOnCardItem text={serviceItem.description}/>
       <PriceListOnCardItem/>
-    </View>  );
+    </ScrollView> 
+    </SafeAreaView>
+    );
 }
 
 
 const styles = StyleSheet.create({
   container: {
-    display: "flex",
-    flexDirection: "column",
+    display: "flex", 
+  },
+  scrollView: {
     backgroundColor: "#fff",
-    justifyContent: "flex-start",
     paddingHorizontal: '8%',
     marginVertical: 8,
   },
