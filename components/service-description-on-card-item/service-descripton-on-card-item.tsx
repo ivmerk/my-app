@@ -1,19 +1,32 @@
 import * as React from "react";
 import {StyleSheet, View, Text } from "react-native";
+import { ChevronDown } from "../svg-const/svg-const";
+
+const LongTextItem = ({text}: {text: string}) => {
+  const [isFullText, setIsFullText] = React.useState(false);
+  return (
+    <View>
+      <Text>
+      {isFullText ? text : text.substring(0, 100)}
+      </Text>
+      <Text
+        style={styles.showOnMapText}
+        onPress={() => setIsFullText(!isFullText)}
+      >
+        {isFullText ? "Скрыть " : "Показать еще "}
+        <ChevronDown />
+      </Text>
+    </View>
+  );
+}
 
 export default function ServiceDescriptionOnCardItem( {text}: {text: string}) {
-  const [isFullText, setIsFullText] = React.useState(false);
   console.log(text);
   return (
     <View style={styles.container}>
       <Text style={styles.titleTextItem}>Описание</Text>
-      {isFullText ? 
-        <Text>{text}</Text> : 
-        <View>
-          <Text>{text.toString().slice(0, 100)}</Text>
-          <Text onPress={() => setIsFullText(!isFullText)} style={styles.showOnMapText}>Показать полностью</Text>
-        </View>
-      }
+      {text.length < 200 ? <Text>{text}</Text> : <LongTextItem text={text}/> }
+      <Text>{text}</Text>  
     </View>
   );
 }
