@@ -9,14 +9,19 @@ import WriteToSellerItem from "../write-to-seller-item/write-to-seller-item";
 import MapOnCardItem from "../map-on-card-item/map-on-card-item";
 import ServiceDescriptionOnCardItem from "../service-description-on-card-item/service-descripton-on-card-item";
 import PriceListOnCardItem from "../price-list-on-card-item/price-list-on-card-item";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 
 
 export default function ServiceCard() {
+
   const serviceItem = ServiceList[1];
+ (serviceItem as any).priceList = [{name: "Основная", price: 2500}, {name: "Дополнительная", price: 500}, {name: "Второстепенная", price: 1000}, {name: "Съемка", price: 14000}];
+
+  const inset = useSafeAreaInsets();
   return (
     <SafeAreaView style={styles.container}>
-    <ScrollView style={styles.scrollView}>
+    <ScrollView contentContainerStyle={{...styles.scrollView, paddingBottom: 100 + inset.bottom}}>
       <View style={styles.sellerImageAndTitleItem}>
         <UserCircleLight />
         <View style={styles.sellerTitleItem}>
@@ -50,7 +55,9 @@ export default function ServiceCard() {
       </View>  
       <MapOnCardItem/>
       <ServiceDescriptionOnCardItem text={serviceItem.description}/>
-      <PriceListOnCardItem/>
+      <PriceListOnCardItem priceList={serviceItem.priceList}/>
+      <Text>Отзывы и вопросы</Text>
+      <Text>Похожие объявления</Text>
     </ScrollView> 
     </SafeAreaView>
     );
