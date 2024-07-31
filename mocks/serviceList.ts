@@ -21,8 +21,64 @@ export const ServiceList = [
     deletedAt: null,
     rating: 0,
     priceList: [],
-    reviews: [],
-    questions: [],
+    reviews: [ 
+    {
+        name: "Ivan",
+        date: "2022-07-09T05:59:12.3397969Z",
+        text: "Очень хороший мастер",
+        rating: 5,
+        replies: [
+          {
+            name: "Ivan",
+            date: "2022-07-09T05:59:12.3397969Z",
+            text: "Очень хороший мастер",
+          },
+          {
+            name: "Ivan",
+            date: "2022-07-09T05:59:12.3397969Z",
+            text: "Очень хороший мастер",
+          },
+          {
+            name: "Ivan",
+            date: "2022-07-09T05:59:12.3397969Z",
+            text: "Очень хороший мастер",
+          },
+        ]
+      },
+      {
+        name: "Ivan",
+        text: "Очень хороший мастер",
+        rating: 5,
+      },
+    {
+        name: "Ivan",
+        text: "Очень хороший мастер",
+        rating: 5,}],
+    questions: [
+      {
+        name: "Ivan",
+        date: "2022-07-09T05:59:12.3397969Z",
+        text: "Очень хороший мастер",
+        rating: 5,
+        replies: [
+          {
+            name: "Ivan",
+            date: "2022-07-09T05:59:12.3397969Z",
+            text: "Очень хороший мастер",
+          },
+          {
+            name: "Ivan",
+            date: "2022-07-09T05:59:12.3397969Z",
+            text: "Очень хороший мастер",
+          },
+          {
+            name: "Ivan",
+            date: "2022-07-09T05:59:12.3397969Z",
+            text: "Очень хороший мастер",
+          },
+        ]
+      }
+    ],
     id: 1,
     uid: "454b188c-6225-4712-8602-12f3537e31b1",
     domainEvents: [],
