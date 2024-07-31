@@ -17,6 +17,14 @@ const PriceListItem = ({name, price}: {name: string, price: number}) => {
   )
 }
 
+const FullPriceList = ({priceList}: {priceList: {name: string, price: number}[]}) => {
+  return (
+    <View>
+      {priceList.map((item, index) => <PriceListItem key={index} name={item.name} price={item.price}/>)}
+    </View>
+  )
+}
+
 const LongListComponent = ({priceList}: {priceList: {name: string, price: number}[]}) => {
   const [isFullList, setIsFullList] = React.useState(false);
   const pressShowMore = () => setIsFullList(!isFullList); 
@@ -24,7 +32,7 @@ const LongListComponent = ({priceList}: {priceList: {name: string, price: number
     <View>
       {isFullList
         ? 
-        priceList.map((item, index) => <PriceListItem key={index} name={item.name} price={item.price}/>)
+        <FullPriceList priceList={priceList} />
         :
         priceList.slice(0, PRICE_LIST_SHOT_LENGTH_MAX).map((item, index) => <PriceListItem key={index} name={item.name} price={item.price} />)
       }
@@ -34,14 +42,14 @@ const LongListComponent = ({priceList}: {priceList: {name: string, price: number
 }
 
 export default function PriceListOnCardComponent({priceList}: PriceListOnCardComponentProps) {
+  
   return (
     <View>
       <Text style={styles.titleTextItem}>Прайс лист</Text>
       <View>
         {priceList.length < PRICE_LIST_SHOT_LENGTH_MAX 
           ? 
-          priceList.map((item, index) => <PriceListItem key={index} name={item.name} price={item.price}
-          />) 
+        <FullPriceList priceList={priceList} />
           : 
           <LongListComponent priceList={priceList} />
         }
