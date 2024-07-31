@@ -8,7 +8,7 @@ import CallToSellerItem from "../call-to-seller-item/call-to-seller-item";
 import WriteToSellerItem from "../write-to-seller-item/write-to-seller-item";
 import MapOnCardItem from "../map-on-card-item/map-on-card-item";
 import ServiceDescriptionOnCardItem from "../service-description-on-card-item/service-descripton-on-card-item";
-import PriceListOnCardItem from "../price-list-on-card-item/price-list-on-card-item";
+import PriceListOnCardComponent from "../price-list-on-card-component/price-list-on-card-component";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 
@@ -55,7 +55,7 @@ export default function ServiceCard() {
       </View>  
       <MapOnCardItem/>
       <ServiceDescriptionOnCardItem text={serviceItem.description}/>
-      <PriceListOnCardItem priceList={serviceItem.priceList}/>
+      <PriceListOnCardComponent priceList={serviceItem.priceList}/>
       <Text>Отзывы и вопросы</Text>
       <Text>Похожие объявления</Text>
     </ScrollView> 
