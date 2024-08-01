@@ -57,7 +57,10 @@ export default function ServiceCard() {
       <MapOnCardItem/>
       <ServiceDescriptionOnCardItem text={serviceItem.description}/>
       <PriceListOnCardComponent priceList={serviceItem.priceList}/>
-        <ReviewsQuestionsComponent reviews={serviceItem.reviews} questions={serviceItem.questions}/>
+        <ReviewsQuestionsComponent 
+          reviews={serviceItem.reviews as []}
+          questions={serviceItem.questions as []}
+        />
       <Text>Похожие объявления</Text>
     </ScrollView> 
     </SafeAreaView>
