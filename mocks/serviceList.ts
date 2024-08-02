@@ -22,10 +22,10 @@ export const ServiceList = [
     rating: 0,
     priceList: [],
     reviews: [ 
-    {
+      {
         name: "Ivan",
         date: "2022-07-09T05:59:12.3397969Z",
-        text: "Очень хороший мастер",
+        text: "Внешний вид просто супер, нравиться всем. Резиновые вставки позволяют брать кастрюли горячими, качество у них тоже хорошее. Толщина дна оптимальная. Очень хороший мастер",
         rating: 5,
         replies: [
           {
@@ -47,34 +47,77 @@ export const ServiceList = [
       },
       {
         name: "Ivan",
-        text: "Очень хороший мастер",
+        text: "Внешний вид просто супер, нравиться всем. Резиновые вставки позволяют брать кастрюли горячими, качество у них тоже хорошее. Толщина дна оптимальная.Очень хороший мастер",
         rating: 5,
       },
-    {
+      {
         name: "Ivan",
-        text: "Очень хороший мастер",
+        text: "Внешний вид просто супер, нравиться всем. Резиновые вставки позволяют брать кастрюли горячими, качество у них тоже хорошее. Толщина дна оптимальная.Очень хороший мастер",
         rating: 5,}],
     questions: [
       {
         name: "Ivan",
         date: "2022-07-09T05:59:12.3397969Z",
-        text: "Очень хороший мастер",
-        rating: 5,
+        text: "???ОВнешний вид просто супер, нравиться всем. Резиновые вставки позволяют брать кастрюли горячими, качество у них тоже хорошее. Толщина дна оптимальная.чень хороший мастер",
         replies: [
           {
             name: "Ivan",
             date: "2022-07-09T05:59:12.3397969Z",
-            text: "Очень хороший мастер",
+            text: "Внешний вид просто супер, нравиться всем. Резиновые вставки позволяют брать кастрюли горячими, качество у них тоже хорошее. Толщина дна оптимальная.Очень хороший мастер",
           },
           {
             name: "Ivan",
             date: "2022-07-09T05:59:12.3397969Z",
-            text: "Очень хороший мастер",
+            text: "Внешний вид просто супер, нравиться всем. Резиновые вставки позволяют брать кастрюли горячими, качество у них тоже хорошее. Толщина дна оптимальная.Очень хороший мастер",
           },
           {
             name: "Ivan",
             date: "2022-07-09T05:59:12.3397969Z",
-            text: "Очень хороший мастер",
+            text: "ОВнешний вид просто супер, нравиться всем. Резиновые вставки позволяют брать кастрюли горячими, качество у них тоже хорошее. Толщина дна оптимальная.чень хороший мастер",
+          },
+        ]
+      },
+      {
+        name: "Ivan",
+        date: "2022-07-09T05:59:12.3397969Z",
+        text: "ОВнешний вид просто супер, нравиться всем. Резиновые вставки позволяют брать кастрюли горячими, качество у них тоже хорошее. Толщина дна оптимальная.чень хороший мастер",
+        replies: [
+          {
+            name: "Ivan",
+            date: "2022-07-09T05:59:12.3397969Z",
+            text: "Внешний вид просто супер, нравиться всем. Резиновые вставки позволяют брать кастрюли горячими, качество у них тоже хорошее. Толщина дна оптимальная.Очень хороший мастер",
+          },
+          {
+            name: "Ivan",
+            date: "2022-07-09T05:59:12.3397969Z",
+            text: "Внешний вид просто супер, нравиться всем. Резиновые вставки позволяют брать кастрюли горячими, качество у них тоже хорошее. Толщина дна оптимальная.Очень хороший мастер",
+          },
+          {
+            name: "Ivan",
+            date: "2022-07-09T05:59:12.3397969Z",
+            text: "ОВнешний вид просто супер, нравиться всем. Резиновые вставки позволяют брать кастрюли горячими, качество у них тоже хорошее. Толщина дна оптимальная.чень хороший мастер",
+          },
+        ]
+      },
+      {
+        name: "Ivan",
+        date: "2022-07-09T05:59:12.3397969Z",
+        text: "ОВнешний вид просто супер, нравиться всем. Резиновые вставки позволяют брать кастрюли горячими, качество у них тоже хорошее. Толщина дна оптимальная.чень хороший мастер",
+        replies: [
+          {
+            name: "Ivan",
+            date: "2022-07-09T05:59:12.3397969Z",
+            text: "Внешний вид просто супер, нравиться всем. Резиновые вставки позволяют брать кастрюли горячими, качество у них тоже хорошее. Толщина дна оптимальная.Очень хороший мастер",
+          },
+          {
+            name: "Ivan",
+            date: "2022-07-09T05:59:12.3397969Z",
+            text: "Внешний вид просто супер, нравиться всем. Резиновые вставки позволяют брать кастрюли горячими, качество у них тоже хорошее. Толщина дна оптимальная.Очень хороший мастер",
+          },
+          {
+            name: "Ivan",
+            date: "2022-07-09T05:59:12.3397969Z",
+            text: "ОВнешний вид просто супер, нравиться всем. Резиновые вставки позволяют брать кастрюли горячими, качество у них тоже хорошее. Толщина дна оптимальная.чень хороший мастер",
           },
         ]
       }
@@ -83,14 +126,14 @@ export const ServiceList = [
     uid: "454b188c-6225-4712-8602-12f3537e31b1",
     domainEvents: [],
     category: {
-        name: "Мастер на час",
-        slug: "master-na-chas",
-        parent: {
-            name: "Ремонт и строительство",
-            slug: "remont-i-stroitelstvo",
-            uid: "2a5c3711-d77a-4c29-9d2f-87e1a60b8912"
-        },
-        uid: "52f44159-b725-4eea-ba98-3ce304cf2c6b"
+      name: "Мастер на час",
+      slug: "master-na-chas",
+      parent: {
+        name: "Ремонт и строительство",
+        slug: "remont-i-stroitelstvo",
+        uid: "2a5c3711-d77a-4c29-9d2f-87e1a60b8912"
+      },
+      uid: "52f44159-b725-4eea-ba98-3ce304cf2c6b"
     }
   },
   {
@@ -115,20 +158,145 @@ export const ServiceList = [
     deletedAt: null,
     rating: 0,
     priceList: [],
-    reviews: [],
-    questions: [],
+    reviews: [ 
+      {
+        name: "Ivan",
+        date: "2022-07-09T05:59:12.3397969Z",
+        text: "Очень хороший мастер",
+        rating: 5,
+        replies: [
+          {
+            name: "Ivan",
+            date: "2022-07-09T05:59:12.3397969Z",
+            text: "Очень хороший мастер",
+          },
+          {
+            name: "Ivan",
+            date: "2022-07-09T05:59:12.3397969Z",
+            text: "Очень хороший мастер",
+          },
+          {
+            name: "Ivan",
+            date: "2022-07-09T05:59:12.3397969Z",
+            text: "Очень хороший мастер",
+          },
+        ],
+      },
+      {
+        name: "Ivan",
+        date: "2022-07-09T05:59:12.3397969Z",
+        text: "Внешний вид просто супер, нравиться всем. Резиновые вставки позволяют брать кастрюли горячими, качество у них тоже хорошее. Толщина дна оптимальная. Очень хороший мастер",
+        rating: 5,
+        replies: [
+          {
+            name: "Ivan",
+            date: "2022-07-09T05:59:12.3397969Z",
+            text: "Очень хороший мастер",
+          },
+          {
+            name: "Ivan",
+            date: "2022-07-09T05:59:12.3397969Z",
+            text: "Очень хороший мастер",
+          },
+          {
+            name: "Ivan",
+            date: "2022-07-09T05:59:12.3397969Z",
+            text: "Очень хороший мастер",
+          },
+        ]
+      },
+      {
+        name: "Ivan",
+        text: "Очень хороший мастер",
+        rating: 5,
+      },
+      {
+        name: "Ivan",
+        text: "Очень хороший мастер",
+        rating: 5,
+      },
+
+    ],
+    questions: [
+      {
+        name: "Ivan",
+        date: "2022-07-09T05:59:12.3397969Z",
+        text: "???Очень хороший мастер",
+        replies: [
+          {
+            name: "Ivan",
+            date: "2022-07-09T05:59:12.3397969Z",
+            text: "Очень хороший мастер",
+          },
+          {
+            name: "Ivan",
+            date: "2022-07-09T05:59:12.3397969Z",
+            text: "Очень хороший мастер",
+          },
+          {
+            name: "Ivan",
+            date: "2022-07-09T05:59:12.3397969Z",
+            text: "Очень хороший мастер",
+          },
+        ]
+      },
+      {
+        name: "Ivan",
+        date: "2022-07-09T05:59:12.3397969Z",
+        text: "ОВнешний вид просто супер, нравиться всем. Резиновые вставки позволяют брать кастрюли горячими, качество у них тоже хорошее. Толщина дна оптимальная.чень хороший мастер",
+        replies: [
+          {
+            name: "Ivan",
+            date: "2022-07-09T05:59:12.3397969Z",
+            text: "Внешний вид просто супер, нравиться всем. Резиновые вставки позволяют брать кастрюли горячими, качество у них тоже хорошее. Толщина дна оптимальная.Очень хороший мастер",
+          },
+          {
+            name: "Ivan",
+            date: "2022-07-09T05:59:12.3397969Z",
+            text: "Внешний вид просто супер, нравиться всем. Резиновые вставки позволяют брать кастрюли горячими, качество у них тоже хорошее. Толщина дна оптимальная.Очень хороший мастер",
+          },
+          {
+            name: "Ivan",
+            date: "2022-07-09T05:59:12.3397969Z",
+            text: "ОВнешний вид просто супер, нравиться всем. Резиновые вставки позволяют брать кастрюли горячими, качество у них тоже хорошее. Толщина дна оптимальная.чень хороший мастер",
+          },
+        ]
+      },
+      {
+        name: "Ivan",
+        date: "2022-07-09T05:59:12.3397969Z",
+        text: "ОВнешний вид просто супер, нравиться всем. Резиновые вставки позволяют брать кастрюли горячими, качество у них тоже хорошее. Толщина дна оптимальная.чень хороший мастер",
+        replies: [
+          {
+            name: "Ivan",
+            date: "2022-07-09T05:59:12.3397969Z",
+            text: "Внешний вид просто супер, нравиться всем. Резиновые вставки позволяют брать кастрюли горячими, качество у них тоже хорошее. Толщина дна оптимальная.Очень хороший мастер",
+          },
+          {
+            name: "Ivan",
+            date: "2022-07-09T05:59:12.3397969Z",
+            text: "Внешний вид просто супер, нравиться всем. Резиновые вставки позволяют брать кастрюли горячими, качество у них тоже хорошее. Толщина дна оптимальная.Очень хороший мастер",
+          },
+          {
+            name: "Ivan",
+            date: "2022-07-09T05:59:12.3397969Z",
+            text: "ОВнешний вид просто супер, нравиться всем. Резиновые вставки позволяют брать кастрюли горячими, качество у них тоже хорошее. Толщина дна оптимальная.чень хороший мастер",
+          },
+        ]
+      }
+    ],
     id: 2,
     uid: "511e4f17-23bc-4218-82ba-de1b782c0cbe",
     domainEvents: [],
     category: {
-        name: "Мастер на час",
-        slug: "master-na-chas",
-        parent: {
-            name: "Ремонт и строительство",
-            slug: "remont-i-stroitelstvo",
-            uid: "2a5c3711-d77a-4c29-9d2f-87e1a60b8912"
-        },
-        uid: "52f44159-b725-4eea-ba98-3ce304cf2c6b"
+      name: "Мастер на час",
+      slug: "master-na-chas",
+      parent: {
+        name: "Ремонт и строительство",
+        slug: "remont-i-stroitelstvo",
+        uid: "2a5c3711-d77a-4c29-9d2f-87e1a60b8912"
+      },
+      uid: "52f44159-b725-4eea-ba98-3ce304cf2c6b"
     }
   },
   {
@@ -159,14 +327,14 @@ export const ServiceList = [
     uid: "7e01d33a-d4a2-49d5-9d36-d976afa01883",
     domainEvents: [],
     category: {
-        name: "Мастер на час",
-        slug: "master-na-chas",
-        parent: {
-            name: "Ремонт и строительство",
-            slug: "remont-i-stroitelstvo",
-            uid: "2a5c3711-d77a-4c29-9d2f-87e1a60b8912"
-        },
-        uid: "52f44159-b725-4eea-ba98-3ce304cf2c6b"
+      name: "Мастер на час",
+      slug: "master-na-chas",
+      parent: {
+        name: "Ремонт и строительство",
+        slug: "remont-i-stroitelstvo",
+        uid: "2a5c3711-d77a-4c29-9d2f-87e1a60b8912"
+      },
+      uid: "52f44159-b725-4eea-ba98-3ce304cf2c6b"
     }
   },
   {
@@ -197,14 +365,14 @@ export const ServiceList = [
     uid: "3a0b43fd-c243-4d93-b431-3160a70af485",
     domainEvents: [],
     category: {
-        name: "Мастер на час",
-        slug: "master-na-chas",
-        parent: {
-            name: "Ремонт и строительство",
-            slug: "remont-i-stroitelstvo",
-            uid: "2a5c3711-d77a-4c29-9d2f-87e1a60b8912"
-        },
-        uid: "52f44159-b725-4eea-ba98-3ce304cf2c6b"
+      name: "Мастер на час",
+      slug: "master-na-chas",
+      parent: {
+        name: "Ремонт и строительство",
+        slug: "remont-i-stroitelstvo",
+        uid: "2a5c3711-d77a-4c29-9d2f-87e1a60b8912"
+      },
+      uid: "52f44159-b725-4eea-ba98-3ce304cf2c6b"
     }
   },
   {
@@ -235,14 +403,14 @@ export const ServiceList = [
     uid: "8fd6649b-b39e-4158-a080-247469dd59da",
     domainEvents: [],
     category: {
-        name: "Мастер на час",
-        slug: "master-na-chas",
-        parent: {
-            name: "Ремонт и строительство",
-            slug: "remont-i-stroitelstvo",
-            uid: "2a5c3711-d77a-4c29-9d2f-87e1a60b8912"
-        },
-        uid: "52f44159-b725-4eea-ba98-3ce304cf2c6b"
+      name: "Мастер на час",
+      slug: "master-na-chas",
+      parent: {
+        name: "Ремонт и строительство",
+        slug: "remont-i-stroitelstvo",
+        uid: "2a5c3711-d77a-4c29-9d2f-87e1a60b8912"
+      },
+      uid: "52f44159-b725-4eea-ba98-3ce304cf2c6b"
     }
   },
   {
@@ -273,14 +441,14 @@ export const ServiceList = [
     uid: "bc780ca3-b198-45be-aad6-0026844b429e",
     domainEvents: [],
     category: {
-        name: "Мастер на час",
-        slug: "master-na-chas",
-        parent: {
-            name: "Ремонт и строительство",
-            slug: "remont-i-stroitelstvo",
-            uid: "2a5c3711-d77a-4c29-9d2f-87e1a60b8912"
-        },
-        uid: "52f44159-b725-4eea-ba98-3ce304cf2c6b"
+      name: "Мастер на час",
+      slug: "master-na-chas",
+      parent: {
+        name: "Ремонт и строительство",
+        slug: "remont-i-stroitelstvo",
+        uid: "2a5c3711-d77a-4c29-9d2f-87e1a60b8912"
+      },
+      uid: "52f44159-b725-4eea-ba98-3ce304cf2c6b"
     }
   },
   {
@@ -311,14 +479,14 @@ export const ServiceList = [
     uid: "1e64ac2a-1726-4edc-957f-e456275b5293",
     domainEvents: [],
     category: {
-        name: "Мастер на час",
-        slug: "master-na-chas",
-        parent: {
-            name: "Ремонт и строительство",
-            slug: "remont-i-stroitelstvo",
-            uid: "2a5c3711-d77a-4c29-9d2f-87e1a60b8912"
-        },
-        uid: "52f44159-b725-4eea-ba98-3ce304cf2c6b"
+      name: "Мастер на час",
+      slug: "master-na-chas",
+      parent: {
+        name: "Ремонт и строительство",
+        slug: "remont-i-stroitelstvo",
+        uid: "2a5c3711-d77a-4c29-9d2f-87e1a60b8912"
+      },
+      uid: "52f44159-b725-4eea-ba98-3ce304cf2c6b"
     }
   },
   {
@@ -349,14 +517,14 @@ export const ServiceList = [
     uid: "c66c64b1-d11e-4ada-8a5b-a74aa0efc6c1",
     domainEvents: [],
     category: {
-        name: "Мастер на час",
-        slug: "master-na-chas",
-        parent: {
-            name: "Ремонт и строительство",
-            slug: "remont-i-stroitelstvo",
-            uid: "2a5c3711-d77a-4c29-9d2f-87e1a60b8912"
-        },
-        uid: "52f44159-b725-4eea-ba98-3ce304cf2c6b"
+      name: "Мастер на час",
+      slug: "master-na-chas",
+      parent: {
+        name: "Ремонт и строительство",
+        slug: "remont-i-stroitelstvo",
+        uid: "2a5c3711-d77a-4c29-9d2f-87e1a60b8912"
+      },
+      uid: "52f44159-b725-4eea-ba98-3ce304cf2c6b"
     }
   },
   {
@@ -387,14 +555,14 @@ export const ServiceList = [
     uid: "3ad16b21-4774-413e-b62a-3d904697dd2b",
     domainEvents: [],
     category: {
-        name: "Мастер на час",
-        slug: "master-na-chas",
-        parent: {
-            name: "Ремонт и строительство",
-            slug: "remont-i-stroitelstvo",
-            uid: "2a5c3711-d77a-4c29-9d2f-87e1a60b8912"
-        },
-        uid: "52f44159-b725-4eea-ba98-3ce304cf2c6b"
+      name: "Мастер на час",
+      slug: "master-na-chas",
+      parent: {
+        name: "Ремонт и строительство",
+        slug: "remont-i-stroitelstvo",
+        uid: "2a5c3711-d77a-4c29-9d2f-87e1a60b8912"
+      },
+      uid: "52f44159-b725-4eea-ba98-3ce304cf2c6b"
     }
   },
   {
@@ -425,14 +593,14 @@ export const ServiceList = [
     uid: "abaa87f9-25a8-4b2e-bc95-c38fea47ba9f",
     domainEvents: [],
     category: {
-        name: "Мастер на час",
-        slug: "master-na-chas",
-        parent: {
-            name: "Ремонт и строительство",
-            slug: "remont-i-stroitelstvo",
-            uid: "2a5c3711-d77a-4c29-9d2f-87e1a60b8912"
-        },
-        uid: "52f44159-b725-4eea-ba98-3ce304cf2c6b"
+      name: "Мастер на час",
+      slug: "master-na-chas",
+      parent: {
+        name: "Ремонт и строительство",
+        slug: "remont-i-stroitelstvo",
+        uid: "2a5c3711-d77a-4c29-9d2f-87e1a60b8912"
+      },
+      uid: "52f44159-b725-4eea-ba98-3ce304cf2c6b"
     }
   },
   {
@@ -463,14 +631,14 @@ export const ServiceList = [
     uid: "c1f13e69-fbde-4ad5-a245-c01c7d3ceb80",
     domainEvents: [],
     category: {
-        name: "Мастер на час",
-        slug: "master-na-chas",
-        parent: {
-            name: "Ремонт и строительство",
-            slug: "remont-i-stroitelstvo",
-            uid: "2a5c3711-d77a-4c29-9d2f-87e1a60b8912"
-        },
-        uid: "52f44159-b725-4eea-ba98-3ce304cf2c6b"
+      name: "Мастер на час",
+      slug: "master-na-chas",
+      parent: {
+        name: "Ремонт и строительство",
+        slug: "remont-i-stroitelstvo",
+        uid: "2a5c3711-d77a-4c29-9d2f-87e1a60b8912"
+      },
+      uid: "52f44159-b725-4eea-ba98-3ce304cf2c6b"
     }
   },
   {
@@ -501,14 +669,14 @@ export const ServiceList = [
     uid: "8d121fa6-3d07-4450-af23-fbd55fca1899",
     domainEvents: [],
     category: {
-        name: "Мастер на час",
-        slug: "master-na-chas",
-        parent: {
-            name: "Ремонт и строительство",
-            slug: "remont-i-stroitelstvo",
-            uid: "2a5c3711-d77a-4c29-9d2f-87e1a60b8912"
-        },
-        uid: "52f44159-b725-4eea-ba98-3ce304cf2c6b"
+      name: "Мастер на час",
+      slug: "master-na-chas",
+      parent: {
+        name: "Ремонт и строительство",
+        slug: "remont-i-stroitelstvo",
+        uid: "2a5c3711-d77a-4c29-9d2f-87e1a60b8912"
+      },
+      uid: "52f44159-b725-4eea-ba98-3ce304cf2c6b"
     }
   },
   {
@@ -539,14 +707,14 @@ export const ServiceList = [
     uid: "207468c6-043d-4171-a4dc-433087b2cf82",
     domainEvents: [],
     category: {
-        name: "Мастер на час",
-        slug: "master-na-chas",
-        parent: {
-            name: "Ремонт и строительство",
-            slug: "remont-i-stroitelstvo",
-            uid: "2a5c3711-d77a-4c29-9d2f-87e1a60b8912"
-        },
-        uid: "52f44159-b725-4eea-ba98-3ce304cf2c6b"
+      name: "Мастер на час",
+      slug: "master-na-chas",
+      parent: {
+        name: "Ремонт и строительство",
+        slug: "remont-i-stroitelstvo",
+        uid: "2a5c3711-d77a-4c29-9d2f-87e1a60b8912"
+      },
+      uid: "52f44159-b725-4eea-ba98-3ce304cf2c6b"
     }
   },
   {
@@ -577,14 +745,14 @@ export const ServiceList = [
     uid: "3d5d1b22-4723-485b-b415-9c90d6051495",
     domainEvents: [],
     category: {
-        name: "Мастер на час",
-        slug: "master-na-chas",
-        parent: {
-            name: "Ремонт и строительство",
-            slug: "remont-i-stroitelstvo",
-            uid: "2a5c3711-d77a-4c29-9d2f-87e1a60b8912"
-        },
-        uid: "52f44159-b725-4eea-ba98-3ce304cf2c6b"
+      name: "Мастер на час",
+      slug: "master-na-chas",
+      parent: {
+        name: "Ремонт и строительство",
+        slug: "remont-i-stroitelstvo",
+        uid: "2a5c3711-d77a-4c29-9d2f-87e1a60b8912"
+      },
+      uid: "52f44159-b725-4eea-ba98-3ce304cf2c6b"
     }
   },
   {
@@ -615,14 +783,14 @@ export const ServiceList = [
     uid: "67c51223-4d46-4faa-bdd3-b1ee6796c050",
     domainEvents: [],
     category: {
-        name: "Мастер на час",
-        slug: "master-na-chas",
-        parent: {
-            name: "Ремонт и строительство",
-            slug: "remont-i-stroitelstvo",
-            uid: "2a5c3711-d77a-4c29-9d2f-87e1a60b8912"
-        },
-        uid: "52f44159-b725-4eea-ba98-3ce304cf2c6b"
+      name: "Мастер на час",
+      slug: "master-na-chas",
+      parent: {
+        name: "Ремонт и строительство",
+        slug: "remont-i-stroitelstvo",
+        uid: "2a5c3711-d77a-4c29-9d2f-87e1a60b8912"
+      },
+      uid: "52f44159-b725-4eea-ba98-3ce304cf2c6b"
     }
   },
   {
@@ -653,14 +821,14 @@ export const ServiceList = [
     uid: "281dff86-9baa-4c0e-903e-ebed0a387427",
     domainEvents: [],
     category: {
-        name: "Мастер на час",
-        slug: "master-na-chas",
-        parent: {
-            name: "Ремонт и строительство",
-            slug: "remont-i-stroitelstvo",
-            uid: "2a5c3711-d77a-4c29-9d2f-87e1a60b8912"
-        },
-        uid: "52f44159-b725-4eea-ba98-3ce304cf2c6b"
+      name: "Мастер на час",
+      slug: "master-na-chas",
+      parent: {
+        name: "Ремонт и строительство",
+        slug: "remont-i-stroitelstvo",
+        uid: "2a5c3711-d77a-4c29-9d2f-87e1a60b8912"
+      },
+      uid: "52f44159-b725-4eea-ba98-3ce304cf2c6b"
     }
   },
   {
@@ -691,14 +859,14 @@ export const ServiceList = [
     uid: "69ef11bf-6448-4667-a980-ffeb658b1d2a",
     domainEvents: [],
     category: {
-        name: "Мастер на час",
-        slug: "master-na-chas",
-        parent: {
-            name: "Ремонт и строительство",
-            slug: "remont-i-stroitelstvo",
-            uid: "2a5c3711-d77a-4c29-9d2f-87e1a60b8912"
-        },
-        uid: "52f44159-b725-4eea-ba98-3ce304cf2c6b"
+      name: "Мастер на час",
+      slug: "master-na-chas",
+      parent: {
+        name: "Ремонт и строительство",
+        slug: "remont-i-stroitelstvo",
+        uid: "2a5c3711-d77a-4c29-9d2f-87e1a60b8912"
+      },
+      uid: "52f44159-b725-4eea-ba98-3ce304cf2c6b"
     }
   },
   {
@@ -729,14 +897,14 @@ export const ServiceList = [
     uid: "b77767fe-8d0e-4587-ae13-781978a73753",
     domainEvents: [],
     category: {
-        name: "Мастер на час",
-        slug: "master-na-chas",
-        parent: {
-            name: "Ремонт и строительство",
-            slug: "remont-i-stroitelstvo",
-            uid: "2a5c3711-d77a-4c29-9d2f-87e1a60b8912"
-        },
-        uid: "52f44159-b725-4eea-ba98-3ce304cf2c6b"
+      name: "Мастер на час",
+      slug: "master-na-chas",
+      parent: {
+        name: "Ремонт и строительство",
+        slug: "remont-i-stroitelstvo",
+        uid: "2a5c3711-d77a-4c29-9d2f-87e1a60b8912"
+      },
+      uid: "52f44159-b725-4eea-ba98-3ce304cf2c6b"
     }
   },
   {
@@ -767,14 +935,14 @@ export const ServiceList = [
     uid: "6e77eee1-fb9a-4a63-9630-babd443a091b",
     domainEvents: [],
     category: {
-        name: "Мастер на час",
-        slug: "master-na-chas",
-        parent: {
-            name: "Ремонт и строительство",
-            slug: "remont-i-stroitelstvo",
-            uid: "2a5c3711-d77a-4c29-9d2f-87e1a60b8912"
-        },
-        uid: "52f44159-b725-4eea-ba98-3ce304cf2c6b"
+      name: "Мастер на час",
+      slug: "master-na-chas",
+      parent: {
+        name: "Ремонт и строительство",
+        slug: "remont-i-stroitelstvo",
+        uid: "2a5c3711-d77a-4c29-9d2f-87e1a60b8912"
+      },
+      uid: "52f44159-b725-4eea-ba98-3ce304cf2c6b"
     }
   },
   {

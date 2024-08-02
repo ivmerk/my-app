@@ -49,7 +49,7 @@ export default function PriceListOnCardComponent({priceList}: PriceListOnCardCom
       <View>
         {priceList.length < PRICE_LIST_SHOT_LENGTH_MAX 
           ? 
-        <FullPriceList priceList={priceList} />
+          <FullPriceList priceList={priceList} />
           : 
           <LongListComponent priceList={priceList} />
         }
