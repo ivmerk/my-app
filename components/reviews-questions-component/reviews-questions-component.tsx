@@ -1,6 +1,7 @@
 import * as React from "react";
 import { View, Text, StyleSheet, Pressable } from "react-native";
 import ReviewsQuestionsTitle from "../reviews-questions-title/reviews-questions-title";
+import ReviewQuestionMessageItem from "../review-question-message-item/review-question-message-item";
 
 enum ReviewsQuestionsType {
   REVIEWS = "Отзывы",
@@ -15,12 +16,13 @@ type ReviewsQuestionsComponentProps = {
 
 const ReviewsQuestionsList = ({messages}: {messages: []}) => {
   const SHOWN_MESSAGES_COUNT = 3;
-  console.log(messages[0].hasOwnProperty("rating"));
-  console.log(messages);
   return (
 
     <View>
-      {messages.map((message, index) => <View key={index}><Text>{message.text}</Text></View>)}
+      {messages.slice(0, SHOWN_MESSAGES_COUNT).map((message, index) => 
+        <View key={index}>
+          <ReviewQuestionMessageItem message={message}/>
+        </View>)}
     </View>
   );
 };
