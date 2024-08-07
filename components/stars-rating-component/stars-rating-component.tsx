@@ -1,5 +1,5 @@
 import * as React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, StyleSheet } from "react-native";
 import { Star } from "../svg-const/svg-const";
 
 const StarItem = ({isActive}: {isActive: boolean}) => {
@@ -26,7 +26,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     marginLeft: 10,
     backgroundColor: "#fff",
-    alignItems: "flex-start",
     justifyContent: "space-around",
   },
   starItem: {

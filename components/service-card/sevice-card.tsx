@@ -19,10 +19,8 @@ export default function ServiceCard() {
   const serviceItem = ServiceList[1];
  (serviceItem as any).priceList = [{name: "Основная", price: 2500}, {name: "Дополнительная", price: 500}, {name: "Второстепенная", price: 1000}, {name: "Съемка", price: 14000}];
 
-  const inset = useSafeAreaInsets();
   return (
-    <SafeAreaView style={styles.container}>
-    <ScrollView contentContainerStyle={{...styles.scrollView, paddingBottom: 100 + inset.bottom}}>
+    <View style={styles.container}>
       <View style={styles.sellerImageAndTitleItem}>
         <UserCircleLight />
         <View style={styles.sellerTitleItem}>
@@ -62,20 +60,15 @@ export default function ServiceCard() {
           questions={serviceItem.questions as []}
         />
       <Text>Похожие объявления</Text>
-    </ScrollView> 
-    </SafeAreaView>
+    </View>
     );
+
 }
 
 
 const styles = StyleSheet.create({
   container: {
-    display: "flex", 
-  },
-  scrollView: {
-    backgroundColor: "#fff",
-    paddingHorizontal: '8%',
-    marginVertical: 8,
+    flex: 1,
   },
   sellerImageAndTitleItem: {
     display: "flex",

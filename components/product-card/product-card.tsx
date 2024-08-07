@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     marginVertical: 8,
     shadowColor: '#000',
-    shadowOffset: {
+    boxShadowOffset: {
       width: 0,
       height: 2,
     },    

@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
   dateRatingContainer: {
     display: "flex",
     flexDirection: "row",
-    alignItems: "flex-end",
+    alignItems: "center",
   },
   dateText: {
     color: "#484848",
