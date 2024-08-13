@@ -2,26 +2,36 @@ import React from "react";
 import { useNavigation } from '@react-navigation/native';
 import { Tabs } from "expo-router";
 import { FontAwesome } from "@expo/vector-icons";
-import { Pressable, Text } from "react-native";
+import { Pressable, Text, Platform } from "react-native";
+import {Cabinet, ForwardBack, Message, TabFavorite, ToTopScrolling } from "@/components/svg-const/svg-const";
+import Page from "./homeScreen";
+
 
 export default function CardLayout() {
   const navigation = useNavigation();
+  const handleGoBack = () => {
+    if (Platform.OS === 'web') {
+      window.history.back();
+    } else {
+      navigation.goBack();
+    }
+  };
   return (
 
-  <Tabs screenOptions={{ headerShown: false }}>
+    <Tabs initialRouteName="homeScreen" screenOptions={{ headerShown: false }}>
       <Tabs.Screen
-        name="homeScreen"
+        name="EmptyComponent"
         options={{
           title: "Назад",
           tabBarIcon: ({ color }) => 
-              <Pressable
-                onPress={() => {
-                  console.log("Pressed");
-                  navigation.goBack();
-                }}
-              >
-              <FontAwesome size={28} name="chevron-left" color={color}/> 
-              </Pressable>
+            <Pressable
+              onPress={() => {
+                console.log("Pressed");
+                handleGoBack();
+              }}
+            >
+              <ForwardBack color={color}/> 
+            </Pressable>
         }}
       />
 
@@ -29,15 +39,30 @@ export default function CardLayout() {
         name="mail"
         options={{
           title: "Почта", 
-          tabBarIcon: ({ color }) => <FontAwesome size={28} name="envelope" color={color} />,
+          tabBarIcon: ({ color }) => <Message color={color} />,
         }} />
-    <Tabs.Screen 
-        name="EmptyComponent"
+
+      <Tabs.Screen
+        name="favorites"
+        options={{
+          title: "Избранное", 
+          tabBarIcon: ({ color }) => <TabFavorite color={color} />,
+        }} />
+
+      <Tabs.Screen
+        name="cabinet"
+        options={{
+          title: "Кабинет", 
+          tabBarIcon: ({ color }) => <Cabinet color={color} />,
+        }} />
+
+      <Tabs.Screen 
+        name="homeScreen"
         options={{ 
           title: "Наверх",
-          tabBarIcon: ({ color }) => <FontAwesome size={28} name="envelope" color={color} />,
+          tabBarIcon: ({ color }) => <ToTopScrolling color={color} />,
         }} 
-    />
-  </Tabs>
+      />
+    </Tabs>
   )
 }

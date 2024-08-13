@@ -6,11 +6,6 @@ import ProductServiceCardPicture from "../product-service-card-picture/product-s
 import PlaceInFavoriteItem from "../place-in-favorite-item/place-in-favorite-item";
 import CallToSellerItem from "../call-to-seller-item/call-to-seller-item";
 import WriteToSellerItem from "../write-to-seller-item/write-to-seller-item";
-import MapOnCardItem from "../map-on-card-item/map-on-card-item";
-import ServiceDescriptionOnCardItem from "../service-description-on-card-item/service-descripton-on-card-item";
-import PriceListOnCardComponent from "../price-list-on-card-component/price-list-on-card-component";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
-import ReviewsQuestionsComponent from "../reviews-questions-component/reviews-questions-component";
 
 
 
@@ -52,14 +47,6 @@ export default function ServiceCard() {
           />
         </View> 
       </View>  
-      <MapOnCardItem/>
-      <ServiceDescriptionOnCardItem text={serviceItem.description}/>
-      <PriceListOnCardComponent priceList={serviceItem.priceList}/>
-        <ReviewsQuestionsComponent 
-          reviews={serviceItem.reviews as []}
-          questions={serviceItem.questions as []}
-        />
-      <Text>Похожие объявления</Text>
     </View>
     );
 

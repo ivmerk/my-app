@@ -1,7 +1,7 @@
 import { Product } from '@/types/product';
 import { Ionicons } from '@expo/vector-icons';
 import React from 'react';
-import { View, Text, StyleSheet, Pressable, ImageBackground } from 'react-native';
+import { View, Text, StyleSheet, Pressable, Platform } from 'react-native';
 import InCartCardItem from '../incart-card-item/incart-card-item';
 import { PriceCardItem } from '../price-card-item/price-card-item';
 import ProductServiceCardPicture from '../product-service-card-picture/product-service-card-picture';
@@ -67,13 +67,20 @@ const styles = StyleSheet.create({
   card: {
     backgroundColor: '#fff',
     marginVertical: 8,
-    shadowColor: '#000',
-    boxShadowOffset: {
-      width: 0,
-      height: 2,
-    },    
-    shadowOpacity: 0.23,
-    shadowRadius: 2.62,
+    ...(Platform.OS === 'web'
+      ?{
+        boxShadow: "0px 2px 2.62px rgba(0, 0, 0, 0.23)",
+      }:
+      {
+        shadowColor: '#000',
+        shadowOffset: {
+          width: 0,
+          height: 2,
+        },    
+        shadowOpacity: 0.23,
+        shadowRadius: 2.62,
+      }),
+
     elevation: 4,
   },
   imageBackground: {

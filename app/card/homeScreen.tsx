@@ -17,14 +17,14 @@ const inset = useSafeAreaInsets();
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={{...styles.scrollView, paddingBottom: 100 + inset.bottom}}>
         <ServiceCard />
-      <MapOnCardItem/>
-      <ServiceDescriptionOnCardItem text={serviceItem.description}/>
-      <PriceListOnCardComponent priceList={serviceItem.priceList}/>
+        <MapOnCardItem/>
+        <ServiceDescriptionOnCardItem text={serviceItem.description}/>
+        <PriceListOnCardComponent priceList={serviceItem.priceList}/>
         <ReviewsQuestionsComponent 
           reviews={serviceItem.reviews as []}
           questions={serviceItem.questions as []}
         />
-      <Text>Похожие объявления</Text>
+        <Text>Похожие объявления</Text>
       </ScrollView>
     </SafeAreaView>
   )
