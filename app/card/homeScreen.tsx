@@ -1,9 +1,9 @@
-import ServiceCard from "@/components/service-card/sevice-card";
+import ServiceCard from "@/components/service-card/service-card";
 import React from "react";
-import {SafeAreaView, ScrollView, View, Text, StyleSheet } from "react-native";
+import {SafeAreaView, ScrollView, Text, StyleSheet } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import MapOnCardItem from "../../components/map-on-card-item/map-on-card-item"; 
-import ServiceDescriptionOnCardItem from "../../components/service-description-on-card-item/service-descripton-on-card-item";
+import ServiceDescriptionOnCardItem from "../../components/service-description-on-card-item/service-description-on-card-item";
 import PriceListOnCardComponent from "../../components/price-list-on-card-component/price-list-on-card-component";
 import ReviewsQuestionsComponent from "../../components/reviews-questions-component/reviews-questions-component";
 import { ServiceList } from "@/mocks/serviceList";

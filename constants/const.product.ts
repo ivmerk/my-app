@@ -33,4 +33,33 @@ enum TypesOfSearchDisplay {
   CATEGORIES = 'categories',
   ALL = 'all',
 }
-export { Availibility, searchMenuItems, TermsOfDelivery, TypesOfOffers, TypesOfSearchDisplay };
+
+const postMenuFilterItems = [
+  {
+    id: 1,
+    name: 'Активные',
+    list: 'active',
+  },
+  {
+    id: 2,
+    name: 'Черновики',
+    list: 'drafts',
+  },
+  {
+    id: 3,
+    name: 'Истёк срок размещения',
+    list: 'expired',
+  },
+  {
+    id: 4,
+    name: 'Отключенные',
+    list: 'disabled',
+  },
+  {
+    id: 5,
+    name: 'Архив',
+    list: 'archive',
+  },
+]
+
+export { Availibility, searchMenuItems, TermsOfDelivery, TypesOfOffers, TypesOfSearchDisplay, postMenuFilterItems };

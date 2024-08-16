@@ -1,5 +1,5 @@
 import * as React from "react";
-import {SafeAreaView, ScrollView, View, Text, StyleSheet } from "react-native";
+import {View, Text, StyleSheet } from "react-native";
 import { ShieldTick, UserCircleLight } from "../svg-const/svg-const";
 import { ServiceList } from "@/mocks/serviceList";
 import ProductServiceCardPicture from "../product-service-card-picture/product-service-card-picture";

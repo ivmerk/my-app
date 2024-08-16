@@ -1,4 +1,5 @@
-import {Text, Animated, StyleSheet, FlatList, Image, Dimensions } from "react-native"
+import React from 'react'
+import {Animated, StyleSheet, FlatList, Image, Dimensions } from "react-native"
 
 const {width} = Dimensions.get('window');
 const sliderImages = [
