@@ -18,7 +18,7 @@ const PageHader = ({mode}: {mode: {mode: string, title: string}}) => {
   );
 }
 
-export default function Page() {
+export default function CabinetScreen() {
   const inset = useSafeAreaInsets();
   const [cabinetPageMode, setCabinetPageMode] = useState<{mode: string, title: string}>(CabinetPageMode[0]);
 

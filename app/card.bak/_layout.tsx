@@ -1,15 +1,11 @@
 import React from "react";
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Platform, Pressable } from "react-native";
-import { useNavigation } from "expo-router";
-import { Cabinet, ForwardBack, Message, TabFavorite, ToTopScrolling } from "@/components/svg-const/svg-const";
-import CabinetScreen from "@/pages/cabinet-screen/cabinet-screen";
-import MailScreen from "@/pages/mail-screen/mail-screen";
-import FavoritesScreen from "@/pages/favorites-screen/favorites-screen";
-import CardScreen from "@/pages/card-screen/card-screen";
+import { useNavigation } from '@react-navigation/native';
+import { Tabs } from "expo-router";
+import { FontAwesome } from "@expo/vector-icons";
+import { Pressable, Text, Platform } from "react-native";
+import {Cabinet, ForwardBack, Message, TabFavorite, ToTopScrolling } from "@/components/svg-const/svg-const";
+import Page from "./homeScreen";
 
-
-const Tab = createBottomTabNavigator();
 
 export default function CardLayout() {
   const navigation = useNavigation();
@@ -18,12 +14,13 @@ export default function CardLayout() {
       window.history.back();
     } else {
       navigation.goBack();
-    }};
-  return(
-    <Tab.Navigator>
-      <Tab.Screen
+    }
+  };
+  return (
+
+    <Tabs initialRouteName="homeScreen" screenOptions={{ headerShown: false }}>
+      <Tabs.Screen
         name="EmptyComponent"
-        component={CardScreen}
         options={{
           title: "Назад",
           tabBarIcon: ({ color }) => 
@@ -36,39 +33,36 @@ export default function CardLayout() {
               <ForwardBack color={color}/> 
             </Pressable>
         }}
-        />
-      <Tab.Screen
+      />
+
+      <Tabs.Screen
         name="mail"
-        component={MailScreen}
         options={{
           title: "Почта", 
           tabBarIcon: ({ color }) => <Message color={color} />,
         }} />
 
-      <Tab.Screen
+      <Tabs.Screen
         name="favorites"
-        component={FavoritesScreen}
         options={{
           title: "Избранное", 
           tabBarIcon: ({ color }) => <TabFavorite color={color} />,
         }} />
 
-      <Tab.Screen
+      <Tabs.Screen
         name="cabinet"
-        component={CabinetScreen}
         options={{
           title: "Кабинет", 
           tabBarIcon: ({ color }) => <Cabinet color={color} />,
         }} />
 
-      <Tab.Screen 
+      <Tabs.Screen 
         name="homeScreen"
-        component={CardScreen}
         options={{ 
           title: "Наверх",
           tabBarIcon: ({ color }) => <ToTopScrolling color={color} />,
         }} 
       />
-    </Tab.Navigator>
+    </Tabs>
   )
 }

@@ -9,7 +9,7 @@ import ReviewsQuestionsComponent from "../../components/reviews-questions-compon
 import { ServiceList } from "@/mocks/serviceList";
 
 
-export default function Page() {
+export default function CardScreen() {
 const inset = useSafeAreaInsets();
   const serviceItem = ServiceList[1];
  (serviceItem as any).priceList = [{name: "Основная", price: 2500}, {name: "Дополнительная", price: 500}, {name: "Второстепенная", price: 1000}, {name: "Съемка", price: 14000}];
