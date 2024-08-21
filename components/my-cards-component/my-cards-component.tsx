@@ -3,14 +3,15 @@ import { View, Text, StyleSheet, Pressable, FlatList, Dimensions, ScrollView } f
 import { AddPost, Wallet } from "../svg-const/svg-const";
 import { postMenuFilterItems } from "@/constants/const.product";
 import NoticeItem from "../notice-item/notice-item";
+import { CabinetPageMode } from "@/pages/cabinet-screen/cabinet-screen";
 
 const {width} = Dimensions.get('window');
 
-const CreateCardAndBalanceComponent = () => {
+const CreateCardAndBalanceComponent = ({handler}: {handler: (mode: {mode: string, title: string}) => void} ) => {
   return (
     <View style={styles.headerContainer}>
       <View style={styles.headerItemContainer}>
-        <Pressable onPress={() => {}}>
+        <Pressable onPress={() => {handler(CabinetPageMode[1])}}>
           <AddPost  color='#484848'/>
         </Pressable>
         <View style={styles.headerTextContainer}>
@@ -36,11 +37,11 @@ const FilterMenuItem = ({name}: {name: string}) => {
     </View>
   );
 }
-export default function MyCardsComponent({title}: {title: string}) {
+export default function MyCardsComponent({title, handler}: {title: string, handler:any }) {
   const [filterType, setFilterType] = useState(postMenuFilterItems[0]);
   return (
     <View style={styles.container}>
-      <CreateCardAndBalanceComponent />
+      <CreateCardAndBalanceComponent handler={handler}/>
       <ScrollView contentContainerStyle={styles.scrollView}>
         <View style={styles.filterContainer}>
           <FlatList

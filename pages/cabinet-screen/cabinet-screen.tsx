@@ -1,10 +1,11 @@
 import MyCardsComponent from "@/components/my-cards-component/my-cards-component";
+import NewNoticeForm from "@/components/new-notice-form/new-notice-form";
 import React, { useState } from "react";
 import { SafeAreaView, View, Text, StyleSheet} from "react-native";
 import { GestureHandlerRootView, ScrollView } from "react-native-gesture-handler";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
-const CabinetPageMode: {mode: string, title: string}[] = [
+export const CabinetPageMode: {mode: string, title: string}[] = [
   {mode: "list", title: "Мои объявления"},
   {mode: "new", title: "Новое объявление"},
   {mode: "edit", title: "Редактировать"},
@@ -25,13 +26,13 @@ export default function CabinetScreen() {
 const renderCabinetPage = () => {
   switch (cabinetPageMode.mode) {
     case "list":
-      return <MyCardsComponent title={cabinetPageMode.title}/>;
+      return <MyCardsComponent title={cabinetPageMode.title} handler={setCabinetPageMode}/>;
     case "new":
-      return <Text>new</Text>;
+      return <NewNoticeForm/>;
     case "edit":
       return <Text>edit</Text>;
     default:
-      return <MyCardsComponent title="default"/>;
+      return <MyCardsComponent title="default" handler={setCabinetPageMode(CabinetPageMode[0])}/>;
   }
 }
 
