@@ -1,22 +1,20 @@
 import { Ionicons } from '@expo/vector-icons';
 import React from 'react';
-import { View, Text, StyleSheet, ImageBackground } from 'react-native';
+import { View, StyleSheet, ImageBackground } from 'react-native';
 
 export default function ProductServiceCardPicture({uri, isFavorite} : {uri: string, isFavorite: boolean}) {
   return (
-        <ImageBackground
-          source={{ uri }}
-          style={styles.imageBackground}>
-          <View style={styles.favoriteIconBlock}>
-          {isFavorite &&  <Ionicons
-              name="heart-outline"
-              size={30}
-              color="#484848"
-            />}
-          </View>
-        </ImageBackground>
-
-
+    <ImageBackground
+      source={{ uri }}
+      style={styles.imageBackground}>
+      <View style={styles.favoriteIconBlock}>
+        {isFavorite &&  <Ionicons
+          name="heart-outline"
+          size={30}
+          color="#484848"
+        />}
+      </View>
+    </ImageBackground>
   );
 }
 

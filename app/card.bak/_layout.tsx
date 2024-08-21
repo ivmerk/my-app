@@ -1,10 +1,8 @@
 import React from "react";
 import { useNavigation } from '@react-navigation/native';
 import { Tabs } from "expo-router";
-import { FontAwesome } from "@expo/vector-icons";
-import { Pressable, Text, Platform } from "react-native";
+import { Pressable, Platform } from "react-native";
 import {Cabinet, ForwardBack, Message, TabFavorite, ToTopScrolling } from "@/components/svg-const/svg-const";
-import Page from "./homeScreen";
 
 
 export default function CardLayout() {

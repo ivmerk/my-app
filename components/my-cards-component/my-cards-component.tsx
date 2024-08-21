@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { View, Text, StyleSheet, Pressable, FlatList, Dimensions, ScrollView } from "react-native";
 import { AddPost, Wallet } from "../svg-const/svg-const";
 import { postMenuFilterItems } from "@/constants/const.product";
+import NoticeItem from "../notice-item/notice-item";
 
 const {width} = Dimensions.get('window');
 
@@ -53,8 +54,7 @@ export default function MyCardsComponent({title}: {title: string}) {
           />
         </View>
       </ScrollView>
-      <Text>MyCardsComponent</Text>
-      <Text>{title}</Text>
+      <NoticeItem/>
     </View>
   );
 }

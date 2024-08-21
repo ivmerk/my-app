@@ -21,6 +21,13 @@ export const ServiceList = [
     deletedAt: null,
     rating: 0,
     priceList: [],
+    chartMessageCount: 234324,
+    showingCount: 100,
+    favotiresCount: 123,
+    messagesCount: 345,
+    callingCount: 456,
+    starsCount: 3,
+    questionsCount: 23,
     reviews: [ 
       {
         name: "Ivan",

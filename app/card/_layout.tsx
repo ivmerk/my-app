@@ -12,15 +12,19 @@ import CardScreen from "@/pages/card-screen/card-screen";
 const Tab = createBottomTabNavigator();
 
 export default function CardLayout() {
+
   const navigation = useNavigation();
+
   const handleGoBack = () => {
     if (Platform.OS === 'web') {
       window.history.back();
     } else {
       navigation.goBack();
     }};
+
   return(
-    <Tab.Navigator>
+    <Tab.Navigator screenOptions={{ headerShown: false }}>
+
       <Tab.Screen
         name="EmptyComponent"
         component={CardScreen}
@@ -37,6 +41,7 @@ export default function CardLayout() {
             </Pressable>
         }}
         />
+
       <Tab.Screen
         name="mail"
         component={MailScreen}
