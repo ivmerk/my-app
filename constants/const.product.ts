@@ -4,6 +4,11 @@ enum Availibility {
   NOT_AVAILABLE = 'товар недоступен',
 }
 
+const CabinetPageMode: {mode: string, title: string}[] = [
+  {mode: "list", title: "Мои объявления"},
+  {mode: "new", title: "Новое объявление"},
+  {mode: "edit", title: "Редактировать"},
+]
 enum TermsOfDelivery {
   ONE_TWO_DAYS = '1-2 дня',
   THREE_FOUR_DAYS = '3-4 дня',
@@ -62,4 +67,4 @@ const postMenuFilterItems = [
   },
 ]
 
-export { Availibility, searchMenuItems, TermsOfDelivery, TypesOfOffers, TypesOfSearchDisplay, postMenuFilterItems };
+export { Availibility, CabinetPageMode, searchMenuItems, TermsOfDelivery, TypesOfOffers, TypesOfSearchDisplay, postMenuFilterItems };

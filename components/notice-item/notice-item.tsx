@@ -1,14 +1,12 @@
 import React from "react";
-import { View, Image, Text, StyleSheet } from "react-native";
+import { View, Image, Text, StyleSheet, Pressable } from "react-native";
 import { ServiceList } from "@/mocks/serviceList";
-import { ChartFill,StarFill,QuestionsFill, FavoriteFill, MessageFill, PhoneFill, TimeFill, Views, Time, FolderDel, WritingPencile, OnButton, AddPost } from "../svg-const/svg-const";
+import { Time, FolderDel, WritingPencil, OnButton, AddPost } from "../svg-const/svg-const";
+import InfoIconsList from "./info-icons-list/info-icons-list";
 
 
-export default function NoticeItem() {
+export default function NoticeItem( {onNewEditNoticeMode}: {onNewEditNoticeMode: ({mode, title}: {mode: string, title: string}) => void}) {
   const card = ServiceList[0];
-  const createDate = new Date(card.createdAt);
-  const today = new Date();
-  const duration = Math.floor((today.getTime() - createDate.getTime()) / (1000 * 60 * 60 * 24));
   return (
     <View style={styles.container}>
       <View style={styles.imageAndInfoIconsContainer}>
@@ -16,55 +14,7 @@ export default function NoticeItem() {
           source={{uri: card.media.images[0].url}}
           style={styles.imageContainer}
         />
-        <View style={styles.infoIconsContainer}>
-          <View style={styles.infoItemContainer}>
-            <TimeFill color="#222222" />
-            <Text style={{fontWeight: "bold"}}> {duration.toString()}</Text>
-            <Text> дней</Text>
-          </View>
-          {card.chartMessageCount &&  
-            <View style={styles.infoItemContainer}>
-              <ChartFill color="#222222" />
-              <Text style={{fontWeight: "bold"}}> {Math.floor(card.chartMessageCount/1000).toString() + "k"}</Text>
-            </View>
-          }
-          {card.showingCount && 
-            <View style={styles.infoItemContainer}>
-              <Views color="#222222" />
-              <Text style={{fontWeight: "bold"}}> {card.showingCount}</Text>
-            </View>
-          }
-          {card.favotiresCount &&
-            <View style={styles.infoItemContainer}>
-              <FavoriteFill color="#222222" />
-              <Text style={{fontWeight: "bold"}}> {card.favotiresCount}</Text>
-            </View>
-          }
-          {card.messagesCount &&
-          <View style={styles.infoItemContainer}>
-            <MessageFill color="#222222" />
-            <Text style={{fontWeight: "bold"}}> {card.messagesCount}</Text>
-          </View>
-          }
-          {card.callingCount &&
-            <View style={styles.infoItemContainer}>
-            <PhoneFill color="#222222" />
-            <Text style={{fontWeight: "bold"}}> {card.callingCount}</Text>
-            </View>
-          }
-          {card.starsCount &&
-          <View style={styles.infoItemContainer}>
-            <StarFill color="#222222" />
-            <Text style={{fontWeight: "bold"}}> {card.starsCount}</Text>
-          </View>
-          }
-          {card.questionsCount &&
-          <View style={styles.infoItemContainer}>
-            <QuestionsFill color="#222222" />
-            <Text style={{fontWeight: "bold"}}> {card.questionsCount}</Text>
-          </View>
-          }
-        </View>
+        <InfoIconsList card={card} />
       </View>
       <View style={styles.titleContainer}>
         <Text style={styles.titleText}>{card.title}</Text>
@@ -81,13 +31,16 @@ export default function NoticeItem() {
             <Text>Автообновление</Text>
           </View>
         </View> 
-        <View style={styles.smallButtonsContainer}>
-          <WritingPencile />
+        <Pressable 
+          style={styles.smallButtonsContainer} 
+          onPress={() => onNewEditNoticeMode({mode: "edit", title: card.title})}
+        >
+          <WritingPencil />
           <View>
             <Text>Редактировать</Text>
           </View>
-        </View> 
-        </View> 
+        </Pressable>
+      </View> 
       <View style={styles.commandButtonsContainer}>
         <View style={styles.smallButtonsContainer}>
           <FolderDel color="#222222" />
@@ -104,10 +57,13 @@ export default function NoticeItem() {
         <View style={styles.bigButtonsContainer}>
         </View>
       </View>
-      <View style={styles.bigButtonsContainer}>
+      <Pressable 
+        style={styles.bigButtonsContainer} 
+        onPress={() => onNewEditNoticeMode({mode: "new", title: card.title})}
+      >
         <AddPost  color='white'/>
         <Text style={styles.bigButtonText}>Разместить объявление</Text>
-      </View>
+      </Pressable>
     </View>
   );
 }
@@ -126,16 +82,6 @@ const styles = StyleSheet.create({
   imageContainer: {
     width: '60%',
     aspectRatio: 20 / 27,
-  },
-  infoIconsContainer: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "flex-start",
-    justifyContent: "space-between",
-  },
-  infoItemContainer: {
-    display: "flex",
-    flexDirection: "row",
   },
   titleContainer: {
     marginVertical: 5,
@@ -173,7 +119,7 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
-backgroundColor: "#484848"
+    backgroundColor: "#484848"
   },
   bigButtonText: {
     color: "white",

@@ -4,14 +4,9 @@ import React, { useState } from "react";
 import { SafeAreaView, View, Text, StyleSheet} from "react-native";
 import { GestureHandlerRootView, ScrollView } from "react-native-gesture-handler";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { CabinetPageMode } from "@/constants/const.product";
 
-export const CabinetPageMode: {mode: string, title: string}[] = [
-  {mode: "list", title: "Мои объявления"},
-  {mode: "new", title: "Новое объявление"},
-  {mode: "edit", title: "Редактировать"},
-]
-
-const PageHader = ({mode}: {mode: {mode: string, title: string}}) => {
+const PageHeader = ({mode}: {mode: {mode: string, title: string}}) => {
   return (
     <View style={styles.containerHeader}>
       <Text style={styles.textTitle}>{mode.title}</Text>
@@ -26,13 +21,13 @@ export default function CabinetScreen() {
 const renderCabinetPage = () => {
   switch (cabinetPageMode.mode) {
     case "list":
-      return <MyCardsComponent title={cabinetPageMode.title} handler={setCabinetPageMode}/>;
+      return <MyCardsComponent title={cabinetPageMode.title} onNewEditNoticeMode={setCabinetPageMode}/>;
     case "new":
       return <NewNoticeForm/>;
     case "edit":
       return <Text>edit</Text>;
     default:
-      return <MyCardsComponent title="default" handler={setCabinetPageMode(CabinetPageMode[0])}/>;
+      return <MyCardsComponent title="default" onNewEditNoticeMode={setCabinetPageMode(CabinetPageMode[0])}/>;
   }
 }
 
@@ -40,7 +35,7 @@ const renderCabinetPage = () => {
   <GestureHandlerRootView style={styles.container}>
     <SafeAreaView >
       <ScrollView contentContainerStyle={{...styles.scrollView, paddingBottom: 100 + inset.bottom}}>
-        <PageHader mode={cabinetPageMode} />
+        <PageHeader mode={cabinetPageMode} />
         {renderCabinetPage()}
       </ScrollView>
     </SafeAreaView>

@@ -1,11 +1,11 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
-import { WritingPencile } from "../svg-const/svg-const";
+import { WritingPencil } from "../svg-const/svg-const";
 
 export default function WriteToSellerItem() {
   return (
     <View style={styles.container}>
-      <WritingPencile />
+      <WritingPencil />
       <Text style={styles.itemText}>Написать</Text>
     </View>
   );
