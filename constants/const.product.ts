@@ -4,10 +4,10 @@ enum Availibility {
   NOT_AVAILABLE = 'товар недоступен',
 }
 
-const CabinetPageMode: {mode: string, title: string}[] = [
-  {mode: "list", title: "Мои объявления"},
-  {mode: "new", title: "Новое объявление"},
-  {mode: "edit", title: "Редактировать"},
+const CabinetPageMode: {mode: string, header: string}[] = [
+  {mode: "list", header: "Мои объявления"},
+  {mode: "new", header: "Новое объявление"},
+  {mode: "edit", header: "Редактировать"},
 ]
 enum TermsOfDelivery {
   ONE_TWO_DAYS = '1-2 дня',

@@ -3,9 +3,10 @@ import { View, Image, Text, StyleSheet, Pressable } from "react-native";
 import { ServiceList } from "@/mocks/serviceList";
 import { Time, FolderDel, WritingPencil, OnButton, AddPost } from "../svg-const/svg-const";
 import InfoIconsList from "./info-icons-list/info-icons-list";
+import { CabinetPageMode } from "@/constants/const.product";
 
 
-export default function NoticeItem( {onNewEditNoticeMode}: {onNewEditNoticeMode: ({mode, title}: {mode: string, title: string}) => void}) {
+export default function NoticeItem( {onCreateEditNoticeMode}: {onCreateEditNoticeMode: ({mode, header}: {mode: string, header: string}) => void}) {
   const card = ServiceList[0];
   return (
     <View style={styles.container}>
@@ -33,7 +34,7 @@ export default function NoticeItem( {onNewEditNoticeMode}: {onNewEditNoticeMode:
         </View> 
         <Pressable 
           style={styles.smallButtonsContainer} 
-          onPress={() => onNewEditNoticeMode({mode: "edit", title: card.title})}
+          onPress={() => onCreateEditNoticeMode(CabinetPageMode[2])}
         >
           <WritingPencil />
           <View>
@@ -59,7 +60,7 @@ export default function NoticeItem( {onNewEditNoticeMode}: {onNewEditNoticeMode:
       </View>
       <Pressable 
         style={styles.bigButtonsContainer} 
-        onPress={() => onNewEditNoticeMode({mode: "new", title: card.title})}
+        onPress={() => onCreateEditNoticeMode(CabinetPageMode[1])}
       >
         <AddPost  color='white'/>
         <Text style={styles.bigButtonText}>Разместить объявление</Text>

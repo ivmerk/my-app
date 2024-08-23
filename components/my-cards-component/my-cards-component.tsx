@@ -7,11 +7,11 @@ import { CabinetPageMode } from "@/constants/const.product";
 
 const {width} = Dimensions.get('window');
 
-const CreateCardAndBalanceComponent = ({onPress}: {onPress: (mode: {mode: string, title: string}) => void} ) => {
+const CreateCardAndBalanceComponent = ({onPress}: {onPress: (mode: {mode: string, header: string}) => void} ) => {
   return (
     <View style={styles.headerContainer}>
       <View style={styles.headerItemContainer}>
-        <Pressable onPress={() => {onPress(CabinetPageMode[1])}}>
+        <Pressable onPress={() => {onPress(CabinetPageMode[1]), console.log(CabinetPageMode[1])}}>
           <AddPost  color='#484848'/>
         </Pressable>
         <View style={styles.headerTextContainer}>
@@ -37,11 +37,11 @@ const FilterMenuItem = ({name}: {name: string}) => {
     </View>
   );
 }
-export default function MyCardsComponent({title, onNewEditNoticeMode}: {title: string, onNewEditNoticeMode:any }) {
+export default function MyCardsComponent({onCreateEditNoticeMode}: {onCreateEditNoticeMode:any }) {
   const [filterType, setFilterType] = useState(postMenuFilterItems[0]);
   return (
     <View style={styles.container}>
-      <CreateCardAndBalanceComponent onPress={onNewEditNoticeMode}/>
+      <CreateCardAndBalanceComponent onPress={onCreateEditNoticeMode}/>
       <ScrollView contentContainerStyle={styles.scrollView}>
         <View style={styles.filterContainer}>
           <FlatList
@@ -55,7 +55,7 @@ export default function MyCardsComponent({title, onNewEditNoticeMode}: {title: s
           />
         </View>
       </ScrollView>
-      <NoticeItem onNewEditNoticeMode={onNewEditNoticeMode}/>
+      <NoticeItem onCreateEditNoticeMode={onCreateEditNoticeMode}/>
     
     </View>
   );

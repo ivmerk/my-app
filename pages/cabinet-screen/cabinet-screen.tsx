@@ -1,33 +1,34 @@
 import MyCardsComponent from "@/components/my-cards-component/my-cards-component";
-import NewNoticeForm from "@/components/new-notice-form/new-notice-form";
+import CreateNoticeForm from "@/components/create-notice-form/create-notice-form";
 import React, { useState } from "react";
 import { SafeAreaView, View, Text, StyleSheet} from "react-native";
 import { GestureHandlerRootView, ScrollView } from "react-native-gesture-handler";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { CabinetPageMode } from "@/constants/const.product";
 
-const PageHeader = ({mode}: {mode: {mode: string, title: string}}) => {
+const PageHeader = ({header}: {header: string}) => {
+  console.log("mode",header)
   return (
     <View style={styles.containerHeader}>
-      <Text style={styles.textTitle}>{mode.title}</Text>
+      <Text style={styles.textTitle}>{header}</Text>
     </View>
   );
 }
 
 export default function CabinetScreen() {
   const inset = useSafeAreaInsets();
-  const [cabinetPageMode, setCabinetPageMode] = useState<{mode: string, title: string}>(CabinetPageMode[0]);
+  const [cabinetPageMode, setCabinetPageMode] = useState<{mode: string, header: string}>(CabinetPageMode[0]);
 
 const renderCabinetPage = () => {
   switch (cabinetPageMode.mode) {
     case "list":
-      return <MyCardsComponent title={cabinetPageMode.title} onNewEditNoticeMode={setCabinetPageMode}/>;
+      return <MyCardsComponent onCreateEditNoticeMode={setCabinetPageMode}/>;
     case "new":
-      return <NewNoticeForm/>;
+      return <CreateNoticeForm onCreateEditNoticeMode={setCabinetPageMode}/>;
     case "edit":
       return <Text>edit</Text>;
     default:
-      return <MyCardsComponent title="default" onNewEditNoticeMode={setCabinetPageMode(CabinetPageMode[0])}/>;
+      return <MyCardsComponent onCreateEditNoticeMode={setCabinetPageMode(CabinetPageMode[0])}/>;
   }
 }
 
@@ -35,7 +36,7 @@ const renderCabinetPage = () => {
   <GestureHandlerRootView style={styles.container}>
     <SafeAreaView >
       <ScrollView contentContainerStyle={{...styles.scrollView, paddingBottom: 100 + inset.bottom}}>
-        <PageHeader mode={cabinetPageMode} />
+        <PageHeader header={cabinetPageMode.header} />
         {renderCabinetPage()}
       </ScrollView>
     </SafeAreaView>
