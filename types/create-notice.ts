@@ -34,7 +34,7 @@ export type CreateNotice = {
     video: {url: string, mediaType: number}[]
   }
   availability: string
-  price: {value: number, condition: string} | number
+  price: Price | number
   additionalService: AdditionalService[]
   address: string
   isOnline: boolean
