@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import { View, Text, StyleSheet, TextInput } from "react-native";
 import { CreateNotice, Price } from "@/types/create-notice";
 import { ChevronDown, DeleteItem, Subtract, WalletFill } from "../svg-const/svg-const";
+import {MAXIMUM_ADDITIONAL_SERVICES_COUNT} from "@/constants/const.card";
 
 const SetPriceByConditionItem = ({price, setPrice}: {price: Price, setPrice: (price: Price) => void}) => {
   
   return (
-    <View style={{display: 'flex', flexDirection: 'row', gap: 10, justifyContent: 'space-between', alignItems: 'center', width: '90%'}}>
+    <View style={{display: 'flex', flexDirection: 'row', gap: 10, justifyContent: 'space-between', alignItems: 'center'}}>
       <View style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width: '60%', borderBottomWidth: 1}}>
         <WalletFill color="#484848"/>
         <TextInput
@@ -39,9 +40,12 @@ export default function CreateNoticeForm( {onCreateEditNoticeMode}: {onCreateEdi
   return (
     <View style={styles.container}>
       <Text>Category_block</Text>
+      <View style={{display: 'flex', flexDirection: 'row', gap: 10, marginTop: 10}}>
+      </View>
+
+        <Text style={{color: '#484848', fontWeight: 'bold', flex: 1,textAlign: 'left', marginTop: 10}}>Описание</Text>
       <TextInput
         style={styles.descriptionContainer}
-        placeholder="Description"
         onChangeText={setDescription}
         value={description}
         multiline={true}
@@ -85,11 +89,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    alignItems: "center",
     justifyContent: "center",
+    marginHorizontal: '7%',
   },
   descriptionContainer: {
-    width: '90%',
+    flex: 1,
     height: 450,
     borderWidth: 1,
   },
@@ -97,6 +101,5 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',
-    width: '90%',
   }
 });
