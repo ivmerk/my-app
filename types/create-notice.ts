@@ -1,7 +1,7 @@
 
 export type AdditionalService = {
   name: string
-  price: number
+  value: number
   condition: string
 }
 

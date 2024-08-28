@@ -9,11 +9,14 @@ export const AddPost = ({color='#484848'}: {color: string}) => (
   </Svg>
 )
 
-export const AddItemSquareItem = ({color='#484848'}: {color: string}) => (
-<Svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-<Path fill-rule="evenodd" clip-rule="evenodd" d="M6.5 2.5C4.29086 2.5 2.5 4.29086 2.5 6.5V13.5C2.5 15.7091 4.29086 17.5 6.5 17.5H13.5C15.7091 17.5 17.5 15.7091 17.5 13.5V6.5C17.5 4.29086 15.7091 2.5 13.5 2.5H6.5ZM9 5.83333V9L5.83333 9V11H9L9 14.1667H11L11 11H14.1667V9H11V5.83333H9Z" fill={color}/>
+export const AddItemSquare = ({color='#484848'}: {color: string}) => (
+<Svg width="16" height="16" viewBox="0 0 16 16" fill="none"> 
+<Path fill-rule="evenodd" clip-rule="evenodd" d="M4.5 0.5C2.29086 0.5 0.5 2.29086 0.5 4.5V11.5C0.5 13.7091 2.29086 15.5 4.5 15.5H11.5C13.7091 15.5 15.5 13.7091 15.5 11.5V4.5C15.5 2.29086 13.7091 0.5 11.5 0.5H4.5ZM7 3.83333V7L3.83333 7V9H7L7 12.1667H9L9 9H12.1667V7H9V3.83333H7Z" fill={color}/>
+<Path d="M8 4L8 12" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+<Path d="M4 8L12 8" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
 </Svg>
 )
+
 export const ArrowLeft = ({size=24, color='#484848'}: {size: number, color: string}) => (
 <Svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} fill="none">
 <Path d="M4 12L3.29289 11.2929L2.58579 12L3.29289 12.7071L4 12ZM19 13C19.5523 13 20 12.5523 20 12C20 11.4477 19.5523 11 19 11V13ZM9.29289 5.29289L3.29289 11.2929L4.70711 12.7071L10.7071 6.70711L9.29289 5.29289ZM3.29289 12.7071L9.29289 18.7071L10.7071 17.2929L4.70711 11.2929L3.29289 12.7071ZM4 13H19V11H4V13Z" fill={color}/>
@@ -65,8 +68,8 @@ export const CloseScreenButton = ({color='#33363F'}: {color: string}) => (
 export const DeleteItem = () => (
 <Svg width="22" height="34" viewBox="0 0 22 34" fill="none">
 <Rect width="22" height="34" rx="2.5" fill="#484848"/>
-<Path d="M17 11L5 23" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<Path d="M5 11L17 23" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<Path d="M17 11L5 23" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+<Path d="M5 11L17 23" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
 </Svg>
 )
 
@@ -165,7 +168,7 @@ export const StarFill = ({color='#222222'}: {color: string}) => (
 
 export const Subtract = ({color='#33363F'}: {color: string}) => (
 <Svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-<Path fill-rule="evenodd" clip-rule="evenodd" d="M10.1101 4.43306L11.1525 3.39068C11.9282 2.61502 11.9282 1.35741 11.1525 0.581749C10.3768 -0.193917 9.11923 -0.193916 8.34356 0.58175L7.28451 1.6408C7.94985 2.80854 8.92621 3.77723 10.1101 4.43306ZM5.82973 3.09558L1.47538 7.44994C1.05032 7.875 0.837787 8.08753 0.698052 8.34862C0.558317 8.60972 0.499372 8.90445 0.381481 9.4939L0.0638517 11.082C-0.00267028 11.4147 -0.0359313 11.581 0.0586767 11.6756C0.153285 11.7702 0.31959 11.7369 0.6522 11.6704L2.24035 11.3528L2.24036 11.3528C2.8298 11.2349 3.12453 11.1759 3.38562 11.0362C3.64672 10.8965 3.85925 10.6839 4.28431 10.2589L8.65153 5.89165C7.51897 5.17076 6.55729 4.21555 5.82973 3.09558Z" fill={color}/>
+<Path fillRule="evenodd" clipRule="evenodd" d="M10.1101 4.43306L11.1525 3.39068C11.9282 2.61502 11.9282 1.35741 11.1525 0.581749C10.3768 -0.193917 9.11923 -0.193916 8.34356 0.58175L7.28451 1.6408C7.94985 2.80854 8.92621 3.77723 10.1101 4.43306ZM5.82973 3.09558L1.47538 7.44994C1.05032 7.875 0.837787 8.08753 0.698052 8.34862C0.558317 8.60972 0.499372 8.90445 0.381481 9.4939L0.0638517 11.082C-0.00267028 11.4147 -0.0359313 11.581 0.0586767 11.6756C0.153285 11.7702 0.31959 11.7369 0.6522 11.6704L2.24035 11.3528L2.24036 11.3528C2.8298 11.2349 3.12453 11.1759 3.38562 11.0362C3.64672 10.8965 3.85925 10.6839 4.28431 10.2589L8.65153 5.89165C7.51897 5.17076 6.55729 4.21555 5.82973 3.09558Z" fill={color}/>
 </Svg>
 )
 
@@ -224,7 +227,7 @@ export const Wallet = ({color='#484848'}: {color: string}) => (
 export const WalletFill = ({color='#484848'}: {color: string}) => (
 <Svg width="12" height="12" viewBox="0 0 12 12" fill="none">
 <Path d="M10 3C10.5523 3 11 2.55228 11 2C11 1.44772 10.5523 1 10 1V3ZM2.75 3L10 3V1L2.75 1L2.75 3ZM2.75 5.5H6.75V3.5L2.75 3.5V5.5ZM2.5 3.25C2.5 3.11193 2.61193 3 2.75 3L2.75 1C1.50736 1 0.500004 2.00736 0.500004 3.25L2.5 3.25ZM0.500004 3.25C0.500004 4.49264 1.50736 5.5 2.75 5.5V3.5C2.61193 3.5 2.5 3.38807 2.5 3.25L0.500004 3.25Z" fill={color}/>
-<Path d="M1.5 6L1.5 3.25" stroke={color} stroke-width="2"/>
+<Path d="M1.5 6L1.5 3.25" stroke={color} strokeWidth="2"/>
 <Path d="M1.5 4H1V4.5L1 8.5L0.999998 8.5329C0.999973 8.97615 0.999952 9.35806 1.04107 9.6639C1.08514 9.99165 1.18451 10.3058 1.43934 10.5607C1.69417 10.8155 2.00835 10.9149 2.3361 10.9589C2.64193 11 3.02384 11 3.46709 11L3.5 11L9 11L9.01599 11C9.23532 11 9.42456 11 9.58119 10.9893C9.74611 10.9781 9.91106 10.9533 10.074 10.8858C10.4416 10.7336 10.7336 10.4416 10.8858 10.074C10.9533 9.91106 10.9781 9.74611 10.9893 9.58119C11 9.42456 11 9.23532 11 9.01599L11 9V8.5H10.5H9C8.44772 8.5 8 8.05228 8 7.5C8 6.94772 8.44772 6.5 9 6.5H10.5H11V6L11 5.98401C11 5.76468 11 5.57544 10.9893 5.41881C10.9781 5.25389 10.9533 5.08894 10.8858 4.92597C10.7336 4.55843 10.4416 4.26642 10.074 4.11418C9.91106 4.04668 9.74611 4.02193 9.58119 4.01067C9.42456 3.99999 9.23532 3.99999 9.01599 4H9L1.5 4Z" fill={color} stroke={color}/>
 </Svg>
 )
