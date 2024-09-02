@@ -11,7 +11,7 @@ export const AddPost = ({color='#484848'}: {color: string}) => (
 
 export const AddItemSquare = ({color='#484848'}: {color: string}) => (
 <Svg width="16" height="16" viewBox="0 0 16 16" fill="none"> 
-<Path fill-rule="evenodd" clip-rule="evenodd" d="M4.5 0.5C2.29086 0.5 0.5 2.29086 0.5 4.5V11.5C0.5 13.7091 2.29086 15.5 4.5 15.5H11.5C13.7091 15.5 15.5 13.7091 15.5 11.5V4.5C15.5 2.29086 13.7091 0.5 11.5 0.5H4.5ZM7 3.83333V7L3.83333 7V9H7L7 12.1667H9L9 9H12.1667V7H9V3.83333H7Z" fill={color}/>
+<Path fillRule="evenodd" clipRule="evenodd" d="M4.5 0.5C2.29086 0.5 0.5 2.29086 0.5 4.5V11.5C0.5 13.7091 2.29086 15.5 4.5 15.5H11.5C13.7091 15.5 15.5 13.7091 15.5 11.5V4.5C15.5 2.29086 13.7091 0.5 11.5 0.5H4.5ZM7 3.83333V7L3.83333 7V9H7L7 12.1667H9L9 9H12.1667V7H9V3.83333H7Z" fill={color}/>
 <Path d="M8 4L8 12" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
 <Path d="M4 8L12 8" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
 </Svg>
