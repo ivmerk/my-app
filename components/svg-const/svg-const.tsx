@@ -120,6 +120,14 @@ export const MyAnswersList = ({color='#33363F'}: {color: string}) => (
   </Svg>
 )
 
+
+export const OnOffToggle= ({color='#33363F'}: {color: string}) => (
+<Svg width="16" height="12" viewBox="0 0 16 12" fill="none">
+<Rect x="1" y="1" width="14" height="10" rx="2" stroke={color} stroke-width="2"/>
+<Rect x="8" y="3" width="5" height="6" rx="1" fill={color}/>
+</Svg>
+  
+)
 export const OnButton = ({color='#33363F'}: {color: string}) => (
   <Svg width="21" height="22" viewBox="0 0 21 22" fill="none">
     <Path d="M5.8947 6.13372C4.94116 7.08726 4.2918 8.30214 4.02871 9.62474C3.76563 10.9473 3.90066 12.3182 4.41671 13.5641C4.93276 14.81 5.80666 15.8748 6.92791 16.624C8.04915 17.3732 9.36738 17.7731 10.7159 17.7731C12.0644 17.7731 13.3826 17.3732 14.5039 16.624C15.6251 15.8748 16.499 14.81 17.0151 13.5641C17.5311 12.3182 17.6661 10.9473 17.4031 9.62474C17.14 8.30214 16.4906 7.08726 15.5371 6.13372" stroke={color} strokeWidth="2" strokeLinecap="round"/>

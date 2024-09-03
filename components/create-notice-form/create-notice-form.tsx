@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet, TextInput, Dimensions, Pressable } from "react-native";
 import { AdditionalService, Price } from "@/types/create-notice";
-import { AddItemSquare, DeleteItem, Subtract} from "../svg-const/svg-const";
+import { AddItemSquare, DeleteItem, OnOffToggle, Subtract} from "../svg-const/svg-const";
 import {MAXIMUM_TITLE_LENGTH, MAXIMUM_ADDITIONAL_SERVICES_COUNT} from "../../constants/const.card";
 import SetPriceByConditionItem from "../set-price-by-condition-item/set-price-by-condition-item";
 
@@ -51,11 +51,15 @@ const SetAdditionalServicesList = ({additionalServices, setAdditionalServices}: 
 export default function CreateNoticeForm( {onCreateEditNoticeMode}: {onCreateEditNoticeMode: (mode: {mode: string, header: string}) => void}) {
 
   const {width}= Dimensions.get('window'); 
-  const [description, setDescription] = useState("");
   const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
   const [price, setPrice] = useState<Price>({value:0, condition:""});
   const [additionalServices, setAdditionalServices] = useState<AdditionalServiceWithKey []>([{name: "", value: 0, condition: "", keyId: 1}]);
 
+  const onSubmit = (title, description, price, additionalServices) => {
+    console.log(title, description, price, additionalServices);
+    onCreateEditNoticeMode({mode: "create", header: "Создание объявления"});
+  }
   return (
     <View style={styles.container}>
       <Text>Category_block</Text>
@@ -91,8 +95,8 @@ export default function CreateNoticeForm( {onCreateEditNoticeMode}: {onCreateEdi
         <Pressable 
           style={{marginRight: 10}}
           onPress={
-          () =>{ setAdditionalServices([...additionalServices, {name: "", value: 0, condition: "", keyId:additionalServices.length > 0 ? additionalServices[additionalServices.length-1].keyId+1 : 1 }]);
-            console.log(additionalServices)}}>
+            () =>{ setAdditionalServices([...additionalServices, {name: "", value: 0, condition: "", keyId:additionalServices.length > 0 ? additionalServices[additionalServices.length-1].keyId+1 : 1 }]);
+              console.log(additionalServices)}}>
           <AddItemSquare color="#484848"/>
         </Pressable>
         <Text style={{flex:1, textAlign: 'left'}}>Добавить услугу</Text>
@@ -106,15 +110,24 @@ export default function CreateNoticeForm( {onCreateEditNoticeMode}: {onCreateEdi
       <View>
         <Text style={{color: '#484848', fontWeight: 'bold', flex: 1,textAlign: 'left', marginTop: 10}}>Место оказания услуг</Text>
       </View>
-      <View>
-        <Text style={{color: '#484848', fontWeight: 'bold', flex: 1,textAlign: 'left', marginTop: 10}}>Способы связи</Text>
+      <Text style={{color: '#484848', fontWeight: 'bold', flex: 1,textAlign: 'left', marginTop: 10}}>Способы связи</Text>
+      <View style={{flexDirection: 'row', alignItems: 'center'}}>
+        <OnOffToggle color="#484848"/>
+        <Text style={{flex:1, textAlign: 'left', marginLeft: 10, fontSize: 14}}>Телефон:</Text>
       </View>
-      <View>
-        <Text>Опубликовать</Text>
+      <View style={{flexDirection: 'row', alignItems: 'center'}}>
+        <OnOffToggle color="#484848"/>
+        <Text style={{flex:1, textAlign: 'left', marginLeft: 10, fontSize: 14}}>Личные сообщения HANTIFY</Text>
       </View>
-      <View>
-        <Text>Сохранить как черновик</Text>
-      </View>
+      <Pressable 
+        style={{width: '100%', marginTop: 20, alignSelf: 'center', backgroundColor: '#484848', padding: 5}}
+        onPress={() => {onSubmit(title, description, price, additionalServices); console.log('submit')}}
+      >
+        <Text style={{color: '#fff', textAlign: 'center', fontWeight: 'bold'}}>Опубликовать</Text>
+      </Pressable>
+      <Pressable style={{width: '100%', marginTop: 10, alignSelf: 'center', borderWidth: 1 , padding: 5}}>
+        <Text style={{color: '#484848', textAlign: 'center', fontWeight: 'bold'}}>Сохранить как черновик</Text>
+      </Pressable>
     </View>
 
   );
