@@ -1,60 +1,64 @@
-import { Product } from '@/types/product';
 import { Ionicons } from '@expo/vector-icons';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { View, Text, StyleSheet, Pressable, Platform } from 'react-native';
 import InCartCardItem from '../incart-card-item/incart-card-item';
 import { PriceCardItem } from '../price-card-item/price-card-item';
 import ProductServiceCardPicture from '../product-service-card-picture/product-service-card-picture';
 import PlaceInFavoriteItem from '../place-in-favorite-item/place-in-favorite-item';
+import { ServiceCardInList } from '@/types/serviceCardInList';
+import { BASE_URL } from '@/constants/const.card';
 
 interface ProductCardProps {
-  item: Product;
+  card: ServiceCardInList ;
   touchCardHandler: (id: string) => void;
   placeInCartHandler: (id: string) => void;
   placeInFavoriteHandler: (id: string) => void;
 
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({ item, touchCardHandler, placeInCartHandler, placeInFavoriteHandler}) => {
+const ProductCard: React.FC<ProductCardProps> = ({ card, touchCardHandler, placeInCartHandler, placeInFavoriteHandler}) => {
+  useEffect(() => {
+    
+  }, [])
   return (
-    <Pressable onPress={() => touchCardHandler(item.id.toString())}>
+    <Pressable onPress={() => touchCardHandler(card.uid.toString())}>
       <View style={styles.card}>
-        <ProductServiceCardPicture
-          uri={item.media.images[0].url}
-          isFavorite={item.isFavorite}
-        />
-        <View style={styles.isAvailableAndTermsListContainer}>
-          <View style={styles.isAvailableAndTermsItemContainer}>
-            <Text style={styles.isAvailableAndTermsItemText}>{item.availability}</Text>
+        { card && <ProductServiceCardPicture
+          uri={`${BASE_URL}Services/${card.uid}/302/402/tumbnail`}
+          isFavorite={card.isFavorite}
+        />}
+        {/* <View style={styles.isAvailableAndTermsListContainer}>
+          <View style={styles.isAvailableAndTermscardContainer}>
+            <Text style={styles.isAvailableAndTermscardText}>{card.availability}</Text>
           </View>
-          <View style={styles.isAvailableAndTermsItemContainer}>
-            <Text style={styles.isAvailableAndTermsItemText}>{item.termsOfDelivery}</Text>
+          <View style={styles.isAvailableAndTermscardContainer}>
+            <Text style={styles.isAvailableAndTermscardText}>{card.termsOfDelivery}</Text>
           </View>
-        </View>
+        </View>*/ }
         <View style={styles.ratingContainer}>
           <Ionicons 
             name="star"
             size={20}
             color="#484848" />
-          <Text style={styles.boldingText}>{item.rating}</Text>
-          <Text style={styles.lightText}>/{item.comments.length} отзывов/{item.salesQty} продаж</Text>
+          <Text style={styles.boldingText}>{card.rating}</Text>
+          {/* <Text style={styles.lightText}>/{card.comments.length} отзывов/{card.salesQty} продаж</Text>*/}
         </View>
         <View style={styles.categoryTitleAndDescriptionContainer}>
-          <Text style={styles.boldingText}>{item.category.name}: {item.title}</Text>
-          <Text style={styles.boldingText}>{item.description}</Text>
+          <Text style={styles.boldingText}>{card.category.name}: {card.title}</Text>
+          <Text style={styles.boldingText}>{card.description}</Text>
         </View>
         <View style={styles.priceInCartAndToFavoriteContainer}>
           <PriceCardItem
-            price={item.price}
+            price={card.price}
             fontSize={18}
           />
           <InCartCardItem 
-            id={item.id.toString()} 
+            id={card.uid.toString()} 
             placeInCartHandler={placeInCartHandler}
             fontSize={18}
           />
           <PlaceInFavoriteItem
-            id={item.id.toString()}
+            id={card.uid.toString()}
             placeInFavoriteHandler={placeInFavoriteHandler}
           />
         </View>
@@ -103,7 +107,7 @@ const styles = StyleSheet.create({
     right: 0,
     top: '65%',
   },
-  isAvailableAndTermsItemContainer: {
+  isAvailableAndTermscardContainer: {
     display: 'flex',
     marginBottom: 8,
     alignItems: 'center',
@@ -111,7 +115,7 @@ const styles = StyleSheet.create({
     width: '40%',
     height: 20,
   },
-  isAvailableAndTermsItemText: {
+  isAvailableAndTermscardText: {
     color: '#fff',
   },
   ratingContainer: {

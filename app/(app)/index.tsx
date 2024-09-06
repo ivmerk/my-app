@@ -1,11 +1,11 @@
 import Logo from '@/components/logo/logo';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import MobileStoriesList from '@/components/mobile-stories-list/mobile-stories-list';
 import ProductCard from '@/components/product-card/product-card';
 import SearchBar from '@/components/search-bar/search-bar';
-import { GoodCards } from '@/mocks/data';
-import { Animated, StyleSheet,SafeAreaView, Dimensions, View } from 'react-native';
+import { Animated, StyleSheet,SafeAreaView, Dimensions, View, Text } from 'react-native';
 import { router } from 'expo-router';
+import { ServiceCardInList } from '@/types/serviceCardInList';
 
 
 const {height, width}= Dimensions.get('window'); 
@@ -26,6 +26,14 @@ export default function Tab() {
 
   }
 
+  const [ServiceCards, setServiceCards] = useState<ServiceCardInList[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [retryCount, setRetryCount] = useState(0);
+
+  const maxRetries = 3;
+
+  const proxyUrl = "https://cors-anywhere.herokuapp.com/";
+  const retryDelay = 10000;
   const scrollY = new Animated.Value(0)
   const translateY = scrollY.interpolate({
     inputRange: [0, 50],
@@ -58,6 +66,37 @@ export default function Tab() {
     outputRange: [maxHeightOfSlider, 0],
     extrapolate: 'clamp',
   })
+
+  useEffect(() => {
+    const fetchCards = async () => {  
+      try{
+        const response = await fetch(proxyUrl + 'https://hantify.itperspectives.tech/services?limit=20',
+          {
+            method: 'GET',
+            headers: {
+              'X-Requested-With': 'XMLHttpRequest'
+            }
+          });
+        if(!response.ok){
+          throw new Error('Failed to fetch data');
+        }
+        const data = await response.json();
+        setServiceCards(data.data);
+        console.log(data.data);
+      } catch (err) {
+        console.log(err);
+        if (retryCount < maxRetries) {
+          setTimeout(() => {
+            setRetryCount(retryCount + 1); 
+          }, retryDelay);
+        }
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchCards();
+  },[retryCount]);
+
   return ( 
     <SafeAreaView style={styles.container}>
       <View style={styles.headerContainer}>
@@ -69,21 +108,23 @@ export default function Tab() {
       <Animated.View style={[styles.headerContainer, {height: heightOfSlider}]}>
         <MobileStoriesList/>
       </Animated.View >
+      {loading ? <Text>Loading...</Text> : 
       <Animated.FlatList 
-        data={GoodCards}
+        data={ServiceCards}
         renderItem={({ item }) => 
           <ProductCard
-            item={item} 
+            card={item} 
             touchCardHandler={touchCardHandler}
             placeInCartHandler={placeInCartHandler} 
             placeInFavoriteHandler={placeInFavoriteHandler}
           />}
-        keyExtractor={(item) => item.id}
+        keyExtractor={(item) => item.uid}
         onScroll={Animated.event(
           [{ nativeEvent: { contentOffset: { y: scrollY } } }],
           { useNativeDriver: false }
         )}
       />
+      }
     </SafeAreaView>
   );
 }

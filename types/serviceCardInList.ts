@@ -1,6 +1,6 @@
 export type ServiceCardInList = {
   address: {
-    ciry: string;
+    city: string;
     coordinates: [number, number];
     raw: string;
     street: string;
