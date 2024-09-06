@@ -7,6 +7,7 @@ import CabinetScreen from "@/pages/cabinet-screen/cabinet-screen";
 import MailScreen from "@/pages/mail-screen/mail-screen";
 import FavoritesScreen from "@/pages/favorites-screen/favorites-screen";
 import CardScreen from "@/pages/card-screen/card-screen";
+import { useRoute } from "@react-navigation/native";
 
 
 const Tab = createBottomTabNavigator();
@@ -21,7 +22,10 @@ export default function CardLayout() {
     } else {
       navigation.goBack();
     }};
+  const route = useRoute(); // Получаем информацию о текущем маршруте
+  
 
+  console.log(route.params, 'route.params[slug]');
   return(
     <Tab.Navigator screenOptions={{ headerShown: false }}>
 
