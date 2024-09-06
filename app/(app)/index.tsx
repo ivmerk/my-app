@@ -6,15 +6,16 @@ import SearchBar from '@/components/search-bar/search-bar';
 import { Animated, StyleSheet,SafeAreaView, Dimensions, View, Text } from 'react-native';
 import { router } from 'expo-router';
 import { ServiceCardInList } from '@/types/serviceCardInList';
+import { BASE_URL } from '@/constants/const.card';
 
 
 const {height, width}= Dimensions.get('window'); 
 
 export default function Tab() {
 
-  const touchCardHandler = (id: string) => {
-    console.log(id)
-    router.push('/card')
+  const touchCardHandler = (slug: string) => {
+    console.log(slug)
+    router.push({ pathname: `/card/[slug]`, params: { slug } });
   }
 
   const placeInCartHandler = (id: string) => {
@@ -70,7 +71,7 @@ export default function Tab() {
   useEffect(() => {
     const fetchCards = async () => {  
       try{
-        const response = await fetch(proxyUrl + 'https://hantify.itperspectives.tech/services?limit=20',
+        const response = await fetch(proxyUrl + `${BASE_URL}services?limit=20`, 
           {
             method: 'GET',
             headers: {

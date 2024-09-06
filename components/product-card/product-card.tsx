@@ -10,7 +10,7 @@ import { BASE_URL } from '@/constants/const.card';
 
 interface ProductCardProps {
   card: ServiceCardInList ;
-  touchCardHandler: (id: string) => void;
+  touchCardHandler: (slug: string) => void;
   placeInCartHandler: (id: string) => void;
   placeInFavoriteHandler: (id: string) => void;
 
@@ -21,7 +21,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ card, touchCardHandler, place
     
   }, [])
   return (
-    <Pressable onPress={() => touchCardHandler(card.uid.toString())}>
+    <Pressable onPress={() => touchCardHandler(card.slug.toString())}>
       <View style={styles.card}>
         { card && <ProductServiceCardPicture
           uri={`${BASE_URL}Services/${card.uid}/302/402/tumbnail`}

@@ -8,7 +8,7 @@ const MAXIMUM_IMAGE_COUNT = 10;
 
 const MAXIMUM_VIDEO_COUNT = 5;
 
-const BASE_URL = `https://hantify.itperspectives.tech/`;
+const BASE_URL = `https://api.hantify.ru/`;
 
 export {
   MAXIMUM_TITLE_LENGTH,
