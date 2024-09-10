@@ -6,7 +6,7 @@ export default function Layout() {
     <Stack screenOptions={{ headerShown: false }}> 
       <Stack.Screen name="(app)"  /> 
       <Stack.Screen name="(stack)" />
-      <Stack.Screen name="card" /> 
+      <Stack.Screen name="card/[slug]" /> 
       <Stack.Screen name="+not-found" />
     </Stack>
   );

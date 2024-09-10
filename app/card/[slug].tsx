@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Platform, Pressable } from "react-native";
 import { useNavigation } from "expo-router";
@@ -8,10 +8,13 @@ import MailScreen from "@/pages/mail-screen/mail-screen";
 import FavoritesScreen from "@/pages/favorites-screen/favorites-screen";
 import CardScreen from "@/pages/card-screen/card-screen";
 import { useRoute } from "@react-navigation/native";
-
+import { ServiceCardInList } from "@/types/serviceCardInList";
+import { BASE_URL } from "@/constants/const.card";
 
 const Tab = createBottomTabNavigator();
-
+interface RouteParams {
+  slug: string;
+}
 export default function CardLayout() {
 
   const navigation = useNavigation();
@@ -22,13 +25,11 @@ export default function CardLayout() {
     } else {
       navigation.goBack();
     }};
-  const route = useRoute(); // Получаем информацию о текущем маршруте
-  
+  const route = useRoute(); 
+  const slug = (route.params as RouteParams).slug;
 
-  console.log(route.params, 'route.params[slug]');
   return(
     <Tab.Navigator screenOptions={{ headerShown: false }}>
-
       <Tab.Screen
         name="EmptyComponent"
         component={CardScreen}
@@ -43,7 +44,9 @@ export default function CardLayout() {
             >
               <ForwardBack color={color}/> 
             </Pressable>
+          ,
         }}
+        initialParams={{ slug: slug }}
         />
 
       <Tab.Screen

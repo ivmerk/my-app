@@ -2,13 +2,14 @@ import * as React from "react";
 import { View,Image, Text, StyleSheet } from "react-native";
 import { ChevronDown, MapPlace } from "../svg-const/svg-const";
 
-export default function MapOnCardItem() {
+export default function MapOnCardItem( {address}: any) {
+  console.log('address',address)
   return (
     <View style={styles.container}>
       <Text style={styles.addressTitleTextItem}>Оказывает услугу</Text>
       <View style={styles.addressContainer}>
         <MapPlace />
-        <Text style={styles.addressTextItem}>  г. Харьков, ул. Строителей, 1</Text>
+        {address &&<Text style={styles.addressTextItem}>{address.city}{address.street}{address.raw}</Text>}
       </View>
       <View style={styles.showOnMapContainer}>
         <Text style={styles.showOnMapText}>Показать на карте </Text>

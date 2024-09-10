@@ -6,10 +6,12 @@ import ProductServiceCardPicture from "../product-service-card-picture/product-s
 import PlaceInFavoriteItem from "../place-in-favorite-item/place-in-favorite-item";
 import CallToSellerItem from "../call-to-seller-item/call-to-seller-item";
 import WriteToSellerItem from "../write-to-seller-item/write-to-seller-item";
+import { ServiceCardInList } from "@/types/serviceCardInList";
+import { BASE_URL } from "@/constants/const.card";
 
 
 
-export default function ServiceCard() {
+export default function ServiceCard( card: ServiceCardInList | null)   {
 
   const serviceItem = ServiceList[1];
  (serviceItem as any).priceList = [{name: "Основная", price: 2500}, {name: "Дополнительная", price: 500}, {name: "Второстепенная", price: 1000}, {name: "Съемка", price: 14000}];
@@ -19,22 +21,23 @@ export default function ServiceCard() {
       <View style={styles.sellerImageAndTitleItem}>
         <UserCircleLight />
         <View style={styles.sellerTitleItem}>
-          <Text>Иван Меркулов</Text>
-          <View style={{ display: "flex", flexDirection: "row" }}>
+          {card?.author &&<Text style={styles.sellerTitleText}>{card.author}</Text>}
+          <View style={{ flexDirection: "row", justifyContent: "flex-start" }}>
             <ShieldTick/>
             <Text style={styles.sellerConfirmedText}>Паспорт проверен</Text>
           </View>
         </View>
       </View>
       <View style={styles.cardContainer}>
-        <ProductServiceCardPicture
-          uri={serviceItem.media.images[0].url}
+        {card?.uid && 
+          <ProductServiceCardPicture
+          uri={`${BASE_URL}Services/${card.uid}/302/402/tumbnail`}
           isFavorite={serviceItem.isFavorite}
-        />
-        <Text style={styles.titleTextItem}>{serviceItem.title}</Text>
+        />}
+        { card?.title && <Text style={styles.sellerTitleText}>{card.title}</Text>}
         <View style= {styles.servicePriceContainer}>
           <Text style={styles.servicePriceText}>
-            от {serviceItem.price} ₽
+            от {card?.price} ₽
           </Text>
           <Text style={[styles.servicePriceText, {fontWeight: "regular"}]}> / за час</Text>
         </View>
@@ -65,10 +68,8 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
   },
   sellerTitleItem: {
-    display: "flex",
     flexDirection: "column",
     backgroundColor: "#fff",
-    alignItems: "center",
     justifyContent: "center",
   },
   sellerTitleText: {
@@ -81,6 +82,7 @@ const styles = StyleSheet.create({
     color: "# 484848",
     fontSize: 14,
     lineHeight: 20,
+    marginLeft: 4,
   },
   cardContainer: {
     display: "flex",
