@@ -6,11 +6,11 @@ export default function Layout() {
   return (
     <AuthProvider>
       <Stack screenOptions={{ headerShown: false }}> 
+        <Stack.Screen name="(auth)/login"/>      
         <Stack.Screen name="(app)"  /> 
         <Stack.Screen name="(stack)" />
         <Stack.Screen name="card/[slug]" /> 
         <Stack.Screen name="+not-found" />
-        <Stack.Screen name="(auth)/login"/>      
       </Stack>
     </AuthProvider>
   );
