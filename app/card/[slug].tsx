@@ -8,8 +8,6 @@ import MailScreen from "@/pages/mail-screen/mail-screen";
 import FavoritesScreen from "@/pages/favorites-screen/favorites-screen";
 import CardScreen from "@/pages/card-screen/card-screen";
 import { useRoute } from "@react-navigation/native";
-import { ServiceCardInList } from "@/types/serviceCardInList";
-import { BASE_URL } from "@/constants/const.card";
 
 const Tab = createBottomTabNavigator();
 interface RouteParams {
