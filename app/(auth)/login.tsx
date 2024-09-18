@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { View, TextInput, Button, Text } from 'react-native';
 import { useAuth } from '@/context/AuthProvider';
 import { PROXY_URL } from '@/constants/const.card';
+import {jwtDecode} from 'jwt-decode';
+import * as SecureStore from 'expo-secure-store';
 
 export default function LoginScreen  () {
   const [username, setUsername] = useState('');
@@ -28,8 +30,18 @@ export default function LoginScreen  () {
       throw new Error('Failed to login');
       }
       const data = await response.json();
-      console.log(data);
-      setUser(data.user);
+      const {accessToken, refreshToken, idToken} = data;
+      const jwtPayload: JwtPayload = jwtDecode(accessToken);
+      console.log('JWT payload:', jwtPayload);
+
+      const userKey = Object.keys(jwtPayload).find((key => key.endsWith('name')));
+console.log(userKey);
+
+      if (!userKey ) {
+        throw new Error('Failed to get user name');
+      }
+      setUser({name:jwtPayload[userKey]});
+      console.log({name:jwtPayload[userKey]});
     } catch (error) {
       console.error('Login error:', error);
     }

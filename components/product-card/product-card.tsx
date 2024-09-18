@@ -6,7 +6,7 @@ import { PriceCardItem } from '../price-card-item/price-card-item';
 import ProductServiceCardPicture from '../product-service-card-picture/product-service-card-picture';
 import PlaceInFavoriteItem from '../place-in-favorite-item/place-in-favorite-item';
 import { ServiceCardInList } from '@/types/serviceCardInList';
-import { BASE_URL } from '@/constants/const.card';
+import { BASE_URL, IMG_URL } from '@/constants/const.card';
 
 interface ProductCardProps {
   card: ServiceCardInList ;
@@ -24,7 +24,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ card, touchCardHandler, place
     <Pressable onPress={() => touchCardHandler(card.slug.toString())}>
       <View style={styles.card}>
         { card && <ProductServiceCardPicture
-          uri={`${BASE_URL}Services/${card.uid}/302/402/tumbnail`}
+            uri={`${IMG_URL}${card.slug}.webp`}
           isFavorite={card.isFavorite}
         />}
         {/* <View style={styles.isAvailableAndTermsListContainer}>

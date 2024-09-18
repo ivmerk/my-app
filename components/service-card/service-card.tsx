@@ -7,7 +7,7 @@ import PlaceInFavoriteItem from "../place-in-favorite-item/place-in-favorite-ite
 import CallToSellerItem from "../call-to-seller-item/call-to-seller-item";
 import WriteToSellerItem from "../write-to-seller-item/write-to-seller-item";
 import { ServiceCardInList } from "@/types/serviceCardInList";
-import { BASE_URL } from "@/constants/const.card";
+import { IMG_URL } from "@/constants/const.card";
 
 
 
@@ -31,8 +31,8 @@ export default function ServiceCard( card: ServiceCardInList | null)   {
       <View style={styles.cardContainer}>
         {card?.uid && 
           <ProductServiceCardPicture
-          uri={`${BASE_URL}Services/${card.uid}/302/402/tumbnail`}
-          isFavorite={serviceItem.isFavorite}
+            uri={`${IMG_URL}${card.slug}.webp`}
+            isFavorite={serviceItem.isFavorite}
         />}
         { card?.title && <Text style={styles.sellerTitleText}>{card.title}</Text>}
         <View style= {styles.servicePriceContainer}>

@@ -3,7 +3,7 @@ import { useSegments, useRouter } from "expo-router";
 import { createContext, useContext, useEffect, useState } from "react";
 
 type User = {
-  name: string;
+  name?: string;
 }
 
 type AuthType = {
