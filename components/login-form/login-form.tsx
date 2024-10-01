@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { View, Button, Text } from 'react-native';
+import { View, StyleSheet, Dimensions, TouchableOpacity, Text } from 'react-native';
 import { useAuth } from '@/context/AuthProvider';
 import { PROXY_URL } from '@/constants/const.card';
 import {jwtDecode} from 'jwt-decode';
-import * as SecureStore from 'expo-secure-store';
 import PasswordTextField from '../password-text-field/password-text-field';
 import UserNameTextField from '../user-name-text-field/user-name-text-field';
 
+const {width} = Dimensions.get('window');
 export default function LoginForm  () {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -50,12 +50,33 @@ console.log(userKey);
   };
 
   return (
-    <View>
-      <Text>Login</Text>
+    <View style={styles.container}>
       <UserNameTextField username={username} setUsername={setUsername} />
-      <PasswordTextField password={password} setPassword={setPassword} />
-      <Button title="Login" onPress={handleLogin} />
+      <PasswordTextField placeholder="ПАРОЛЬ" password={password} setPassword={setPassword} />
+      <TouchableOpacity style={styles.button} onPress={handleLogin}>
+        <Text style={styles.buttonText}>Войти</Text>
+      </TouchableOpacity>
     </View>
   );
 };
 
+const styles = StyleSheet.create({
+  container: {
+    paddingHorizontal: 40,
+    width,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  button: {
+    width:'100%',
+    backgroundColor: '#484848',
+    alignItems: 'center',
+    marginTop: 20,
+    paddingVertical: 5,
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 16,
+  },
+});

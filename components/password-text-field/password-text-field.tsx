@@ -1,11 +1,11 @@
 import React from 'react';
-import { View, TextInput, Text } from 'react-native';
+import { View, TextInput, StyleSheet } from 'react-native';
 
-export default function PasswordTextField({ password, setPassword } : {password: string, setPassword: (password: string) => void}) {
+export default function PasswordTextField({ placeholder, password, setPassword } : {placeholder: string, password: string, setPassword: (password: string) => void}) {
   return (
-    <View>
+    <View style={styles.container}>
       <TextInput
-        placeholder="Password"
+        placeholder={placeholder}
         value={password}
         secureTextEntry
         onChangeText={setPassword}
@@ -13,3 +13,13 @@ export default function PasswordTextField({ password, setPassword } : {password:
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    width: '100%',
+    marginTop: 15,
+    borderWidth: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
