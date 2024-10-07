@@ -7,12 +7,14 @@ import { Animated, StyleSheet,SafeAreaView, Dimensions, View, Text } from 'react
 import { router } from 'expo-router';
 import { ServiceCardInList } from '@/types/serviceCardInList';
 import { BASE_URL } from '@/constants/const.card';
+import { useAuth } from '@/context/AuthProvider';
 
 
 const {height, width}= Dimensions.get('window'); 
 
 export default function Tab() {
 
+  const {user} = useAuth();
   const touchCardHandler = (slug: string) => {
     console.log(slug)
     router.push({ pathname: `/card/[slug]`, params: { slug } });
@@ -95,7 +97,9 @@ export default function Tab() {
         setLoading(false);
       }
     };
-    fetchCards();
+    if (user !== null) {
+      fetchCards();
+    }
   },[retryCount]);
 
   return ( 

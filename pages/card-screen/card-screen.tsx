@@ -10,6 +10,7 @@ import { ServiceList } from "@/mocks/serviceList";
 import { ParamListBase, RouteProp, useRoute } from "@react-navigation/native";
 import { ServiceCardInList } from "@/types/serviceCardInList";
 import { BASE_URL } from "@/constants/const.card";
+import { useAuth } from "@/context/AuthProvider";
 
 export default function CardScreen({route}: any) {
 
@@ -21,39 +22,42 @@ export default function CardScreen({route}: any) {
   const[card, setCard] = useState<ServiceCardInList | null>(null);
   const [loading, setLoading] = useState(true);
   const [retryCount, setRetryCount] = useState(0);
-
+const {user} = useAuth();
 
   useEffect(() => {
-   const fetchCard = async () => {
-      try{
-        const response = await fetch(proxyUrl + `${BASE_URL}services/${slug}`, 
-          {
-            method: 'GET',
-            headers: {
-              'X-Requested-With': 'XMLHttpRequest'
-            }
-          });
-        if(!response.ok){
-          throw new Error('Failed to fetch data');
+      const fetchCard = async () => {
+        try{
+          const response = await fetch(proxyUrl + `${BASE_URL}services/${slug}`, 
+            {
+              method: 'GET',
+              headers: {
+                'X-Requested-With': 'XMLHttpRequest'
+              }
+            });
+          if(!response.ok){
+            throw new Error('Failed to fetch data');
+          }
+          const data = await response.json();
+          setCard(data);
+          setTimeout(() =>  console.log(data), 10000);
+        } catch (err) {
+          console.log(err);
+          if (retryCount < maxRetries) {
+            setTimeout(() => {
+              setRetryCount(retryCount + 1); 
+            }, retryDelay);
+          }
+        } finally {
+          setLoading(false);
         }
-        const data = await response.json();
-        setCard(data);
-        setTimeout(() =>  console.log(data), 10000);
-      } catch (err) {
-        console.log(err);
-        if (retryCount < maxRetries) {
-          setTimeout(() => {
-            setRetryCount(retryCount + 1); 
-          }, retryDelay);
-        }
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchCard();
+      };
+    if (user !== null) {
+      console.log('user', user)
+      fetchCard();
+    }
   }, [slug]);
   const serviceItem = ServiceList[1];
- (serviceItem as any).priceList = [{name: "Основная", price: 2500}, {name: "Дополнительная", price: 500}, {name: "Второстепенная", price: 1000}, {name: "Съемка", price: 14000}];
+  (serviceItem as any).priceList = [{name: "Основная", price: 2500}, {name: "Дополнительная", price: 500}, {name: "Второстепенная", price: 1000}, {name: "Съемка", price: 14000}];
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={{...styles.scrollView, paddingBottom: 100 + inset.bottom}}>
