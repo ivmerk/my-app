@@ -5,11 +5,12 @@ import { PROXY_URL } from '@/constants/const.card';
 import {jwtDecode} from 'jwt-decode';
 import PasswordTextField from '../password-text-field/password-text-field';
 import UserNameTextField from '../user-name-text-field/user-name-text-field';
+import { setToken } from '@/common/token-store-service';
 
 const {width} = Dimensions.get('window');
 export default function LoginForm  () {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState('79206907175');
+  const [password, setPassword] = useState('79206907175');
 
   const {setUser} = useAuth();
 
@@ -33,6 +34,10 @@ export default function LoginForm  () {
       }
       const data = await response.json();
       const {accessToken, refreshToken, idToken} = data;
+      console.log('Access token:', accessToken);
+      setToken('access_token', accessToken);
+      setToken('refresh_token', refreshToken);
+      setToken('id_token', idToken);
       const jwtPayload: JwtPayload = jwtDecode(accessToken);
       console.log('JWT payload:', jwtPayload);
 

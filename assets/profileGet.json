@@ -1,0 +1,150 @@
+{
+  "id": 0,
+  "uid": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "domainEvents": [
+    {}
+  ],
+  "login": "string",
+  "services": {
+    "data": [
+      {
+        "id": 0,
+        "uid": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "domainEvents": [
+          {}
+        ],
+        "categoryUid": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "title": "string",
+        "description": "string",
+        "media": {
+          "images": [
+            {
+              "url": "string",
+              "type": 0
+            }
+          ],
+          "videos": [
+            {
+              "url": "string",
+              "type": 0
+            }
+          ]
+        },
+        "price": 0,
+        "category": {
+          "id": 0,
+          "uid": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+          "domainEvents": [
+            {}
+          ],
+          "name": "string",
+          "parentUid": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+          "parent": "string",
+          "slug": "string",
+          "isEnabled": true,
+          "isDeleted": true
+        },
+        "isFavorite": true,
+        "isActive": true,
+        "isArchive": true,
+        "isDeleted": true,
+        "isFake": true,
+        "slug": "string",
+        "createdAt": "2024-10-08T07:58:28.289Z",
+        "updatedAt": "2024-10-08T07:58:28.289Z",
+        "deletedAt": "2024-10-08T07:58:28.289Z",
+        "rating": 0,
+        "priceList": [
+          {
+            "text": "string",
+            "price": 0,
+            "type": 0
+          }
+        ],
+        "reviews": [
+          {
+            "uid": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "text": "string",
+            "images": [
+              {
+                "url": "string",
+                "type": 0
+              }
+            ],
+            "video": [
+              {
+                "url": "string",
+                "type": 0
+              }
+            ],
+            "rating": 0,
+            "created_at": "2024-10-08T07:58:28.289Z",
+            "user": "string",
+            "answer": {
+              "text": "string",
+              "created_at": "2024-10-08T07:58:28.289Z",
+              "user": "string"
+            }
+          }
+        ],
+        "reviewCount": 0,
+        "questions": [
+          {
+            "text": "string",
+            "answers": [
+              {
+                "text": "string",
+                "created_at": "2024-10-08T07:58:28.289Z",
+                "user": "string"
+              }
+            ],
+            "createdAt": "2024-10-08T07:58:28.289Z",
+            "user": "string"
+          }
+        ],
+        "priceType": 0,
+        "author": "string",
+        "phone": "string",
+        "address": {
+          "raw": "string",
+          "city": "string",
+          "street": "string",
+          "coordinates": [
+            0
+          ]
+        },
+        "moderationState": 0
+      }
+    ],
+    "count": 0
+  },
+  "userUid": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "firstName": "string",
+  "lastName": "string",
+  "patronymic": "string",
+  "phones": [
+    "string"
+  ],
+  "customerType": 0,
+  "shortLink": "string",
+  "isDeleted": true,
+  "createdAt": "2024-10-08T07:58:28.289Z",
+  "updatedAt": "2024-10-08T07:58:28.289Z",
+  "deletedAt": "2024-10-08T07:58:28.289Z",
+  "isBlocked": true,
+  "state": 0,
+  "profileCheck": {
+    "additionalProp1": "2024-10-08T07:58:28.289Z",
+    "additionalProp2": "2024-10-08T07:58:28.289Z",
+    "additionalProp3": "2024-10-08T07:58:28.289Z"
+  },
+  "isVerified": true,
+  "verificationCode": "string",
+  "roles": [
+    "string"
+  ],
+  "avatar": "string",
+  "rating": 0,
+  "reviewsCount": 0,
+  "displayName": "string"
+}

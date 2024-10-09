@@ -1,10 +1,13 @@
 import MyCardsComponent from "@/components/my-cards-component/my-cards-component";
 import CreateNoticeForm from "@/components/create-notice-form/create-notice-form";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { SafeAreaView, View, Text, StyleSheet} from "react-native";
 import { GestureHandlerRootView, ScrollView } from "react-native-gesture-handler";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { CabinetPageMode } from "@/constants/const.product";
+import { BASE_URL } from "@/constants/const.card";
+import { getToken } from "@/common/token-store-service";
+import { useAuth } from "@/context/AuthProvider";
 
 const PageHeader = ({header}: {header: string}) => {
   console.log("mode",header)
@@ -19,6 +22,14 @@ export default function CabinetScreen() {
   const inset = useSafeAreaInsets();
   const [cabinetPageMode, setCabinetPageMode] = useState<{mode: string, header: string}>(CabinetPageMode[0]);
 
+  const  maxRetries = 3;
+  const retryDelay = 10000;
+  const proxyUrl = "https://cors-anywhere.herokuapp.com/";
+  const [profile, setProfile] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [retryCount, setRetryCount] = useState(0);
+  const {user} = useAuth();
+  
 const renderCabinetPage = () => {
   switch (cabinetPageMode.mode) {
     case "list":
@@ -32,6 +43,41 @@ const renderCabinetPage = () => {
   }
 }
 
+  useEffect(() => {
+      const fetchCard = async () => {
+        try{
+        const accessToken = await getToken('access_token');
+    console.log('access_token', accessToken);
+          const response = await fetch(proxyUrl + `${BASE_URL}profile/`, 
+            {
+              method: 'GET',
+              headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                'Authorization': `Bearer ${accessToken}`,
+
+              }
+            });
+          if(!response.ok){
+            throw new Error('Failed to fetch data');
+          }
+          const data = await response.json();
+          setProfile(data);
+          setTimeout(() =>  console.log(JSON.stringify(data, null, 2)), 10000);
+        } catch (err) {
+          console.log(err);
+          if (retryCount < maxRetries) {
+            setTimeout(() => {
+              setRetryCount(retryCount + 1); 
+            }, retryDelay);
+          }
+        } finally {
+          setLoading(false);
+        }
+      };
+    if (user !== null) {
+      fetchCard();
+    }
+  }, []);
   return (
   <GestureHandlerRootView style={styles.container}>
     <SafeAreaView >
