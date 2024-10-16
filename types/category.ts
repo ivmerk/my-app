@@ -1,12 +1,14 @@
 export type Category = {
-        name: string;
-        slug: string;
-        parent: ParentСategory | null;
-        uid: string;
-};
+    id: number,
+    uid: string,
+    domainEvents: [
+    {}
+  ],
+    name: string,
+    parentUid: string,
+    parent: string,
+    slug: string,
+    isEnabled: boolean,
+    isDeleted: boolean
+  };
 
-type ParentСategory = {
-        name: string;
-        slug: string;
-        uid: string;
-};

@@ -1,15 +1,19 @@
+import { Address } from "./address";
 import { Category } from "./category";
 import { Image } from "./image";
 import { Video } from "./video";
 
 export  type  Service = {
+    id: number;
     title: string; 
+    address: Address;
     description: string;
     media: {
       images: Image[];
       video: Video[];
     };
     price: number;
+    priceType: number;
     isFavorite: boolean;
     isActive: boolean;
     isArchive: boolean;
@@ -21,8 +25,8 @@ export  type  Service = {
     priceList: [];
     reviews: [];
     questions: [];
-    id: number;
     uid: string;
     domainEvents: [];
     category: Category; 
   };
+

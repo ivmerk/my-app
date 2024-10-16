@@ -1,9 +1,13 @@
-import React, { useState } from "react";
+import * as React from "react";
+import { useState, useEffect } from "react";
 import { View, Text, StyleSheet, Pressable, FlatList, Dimensions, ScrollView } from "react-native";
 import { AddPost, Wallet } from "../svg-const/svg-const";
 import { postMenuFilterItems } from "@/constants/const.product";
 import NoticeItem from "../notice-item/notice-item";
 import { CabinetPageMode } from "@/constants/const.product";
+import { useAuth } from "@/context/AuthProvider";
+import { getToken } from "@/common/token-store-service";
+import { BASE_URL } from "@/constants/const.card";
 
 const {width} = Dimensions.get('window');
 
@@ -38,7 +42,49 @@ const FilterMenuItem = ({name}: {name: string}) => {
   );
 }
 export default function MyCardsComponent({onCreateEditNoticeMode}: {onCreateEditNoticeMode:any }) {
-  const [filterType, setFilterType] = useState(postMenuFilterItems[0]);
+  const [profileData, setProfileData] = useState(null);
+const[cardsData, setCardsData] = useState([]);
+  const  maxRetries = 3;
+  const retryDelay = 10000;
+  const proxyUrl = "https://cors-anywhere.herokuapp.com/";
+  const [loading, setLoading] = useState(true);
+  const [retryCount, setRetryCount] = useState(0);
+  const {user} = useAuth();
+
+  useEffect(() => {
+      const fetchCard = async () => {
+        try{
+        const accessToken = await getToken('access_token');
+          const response = await fetch(proxyUrl + `${BASE_URL}profile/`, 
+            {
+              method: 'GET',
+              headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                'Authorization': `Bearer ${accessToken}`,
+
+              }
+            });
+          if(!response.ok){
+            throw new Error('Failed to fetch data');
+          }
+          const data = await response.json();
+          setProfileData(data);
+          setTimeout(() =>  console.log(JSON.stringify(data, null, 2)), 10000);
+        } catch (err) {
+          console.log(err);
+          if (retryCount < maxRetries) {
+            setTimeout(() => {
+              setRetryCount(retryCount + 1); 
+            }, retryDelay);
+          }
+        } finally {
+          setLoading(false);
+        }
+      };
+    if (user !== null) {
+      fetchCard();
+    }
+  }, []);
   return (
     <View style={styles.container}>
       <CreateCardAndBalanceComponent onPress={onCreateEditNoticeMode}/>
@@ -54,6 +100,16 @@ export default function MyCardsComponent({onCreateEditNoticeMode}: {onCreateEdit
             )}
           />
         </View>
+        <View>
+         {profileData && profileData.services.data.length > 0 && <FlatList
+            data={profileData.services.data}
+            showsVerticalScrollIndicator={false}
+            keyExtractor={(item) => item.id.toString()}
+            renderItem={({item}) => (
+              <NoticeItem card={item} />
+            )}
+          />}
+        </View>
       </ScrollView>
       <NoticeItem onCreateEditNoticeMode={onCreateEditNoticeMode}/>
     
@@ -64,7 +120,6 @@ export default function MyCardsComponent({onCreateEditNoticeMode}: {onCreateEdit
 const styles = StyleSheet.create({
   container: {
     width,
-    display: "flex",
     flex: 1,
   },
   headerContainer: {
