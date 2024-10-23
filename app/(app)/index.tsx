@@ -9,9 +9,9 @@ import { ServiceCardInList } from '@/types/serviceCardInList';
 import { BASE_URL } from '@/constants/const.card';
 import { useAuth } from '@/context/AuthProvider';
 import { globalStyles } from '@/constants/const.css';
+import { heightOfLogo, heightOfSlider, widthOfLogo, scrollY } from '@/common/animated-rules-methods';
 
 
-const {height, width}= Dimensions.get('window'); 
 
 export default function Tab() {
 
@@ -38,38 +38,6 @@ export default function Tab() {
 
   const proxyUrl = "https://cors-anywhere.herokuapp.com/";
   const retryDelay = 10000;
-  const scrollY = new Animated.Value(0)
-  const translateY = scrollY.interpolate({
-    inputRange: [0, 50],
-    outputRange: [0, 50],
-    extrapolate: 'clamp',
-  })
-  const opacity = scrollY.interpolate({
-    inputRange: [0, 50],
-    outputRange: [1, 0],
-    extrapolate: 'clamp',
-  })
-
-  const maxHeightOfLogo = 5 * height / 100;
-  const heightOfLogo = scrollY.interpolate({
-    inputRange: [0, maxHeightOfLogo],
-    outputRange: [maxHeightOfLogo, 0],
-    extrapolate: 'clamp',
-  })
-  const maxWidthOfLogo = 4.5 * width / 100; 
-  const widthOfLogo = scrollY.interpolate({
-    inputRange: [0, maxWidthOfLogo],
-    outputRange: [maxWidthOfLogo, 0],
-    extrapolate: 'clamp',
-  })
-
-
-  const maxHeightOfSlider =  10 * height / 100;
-  const heightOfSlider = scrollY.interpolate({
-    inputRange: [0, maxHeightOfSlider],
-    outputRange: [maxHeightOfSlider, 0],
-    extrapolate: 'clamp',
-  })
 
   useEffect(() => {
     const fetchCards = async () => {  
