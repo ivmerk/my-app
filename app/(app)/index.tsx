@@ -8,6 +8,7 @@ import { router } from 'expo-router';
 import { ServiceCardInList } from '@/types/serviceCardInList';
 import { BASE_URL } from '@/constants/const.card';
 import { useAuth } from '@/context/AuthProvider';
+import { globalStyles } from '@/constants/const.css';
 
 
 const {height, width}= Dimensions.get('window'); 
@@ -103,7 +104,8 @@ export default function Tab() {
   },[retryCount]);
 
   return ( 
-    <SafeAreaView style={styles.container}>
+    <View style={globalStyles.container}>
+    <SafeAreaView>
       <View style={styles.headerContainer}>
         <Animated.View style={[styles.logo, {height:heightOfLogo, width: widthOfLogo}]}>
           <Logo />
@@ -131,18 +133,12 @@ export default function Tab() {
       />
       }
     </SafeAreaView>
+    </View>
   );
 }
 
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    paddingHorizontal: '8%',
-    backgroundColor: 'white',
-  },
   headerContainer: {
     display: 'flex',
     flexDirection: 'row',

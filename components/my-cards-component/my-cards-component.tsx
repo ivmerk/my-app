@@ -8,6 +8,7 @@ import { CabinetPageMode } from "@/constants/const.product";
 import { useAuth } from "@/context/AuthProvider";
 import { getToken } from "@/common/token-store-service";
 import { BASE_URL } from "@/constants/const.card";
+import { ServiceProfile } from "@/types/service_profile";
 
 const {width} = Dimensions.get('window');
 
@@ -42,8 +43,7 @@ const FilterMenuItem = ({name}: {name: string}) => {
   );
 }
 export default function MyCardsComponent({onCreateEditNoticeMode}: {onCreateEditNoticeMode:any }) {
-  const [profileData, setProfileData] = useState(null);
-const[cardsData, setCardsData] = useState([]);
+  const [profileData, setProfileData] = useState<ServiceProfile[]|null>(null);
   const  maxRetries = 3;
   const retryDelay = 10000;
   const proxyUrl = "https://cors-anywhere.herokuapp.com/";
@@ -68,7 +68,7 @@ const[cardsData, setCardsData] = useState([]);
             throw new Error('Failed to fetch data');
           }
           const data = await response.json();
-          setProfileData(data);
+          setProfileData(data.data.services);
           setTimeout(() =>  console.log(JSON.stringify(data, null, 2)), 10000);
         } catch (err) {
           console.log(err);
@@ -101,8 +101,8 @@ const[cardsData, setCardsData] = useState([]);
           />
         </View>
         <View>
-         {profileData && profileData.services.data.length > 0 && <FlatList
-            data={profileData.services.data}
+         {profileData && profileData.length > 0 && <FlatList
+            data={profileData}
             showsVerticalScrollIndicator={false}
             keyExtractor={(item) => item.id.toString()}
             renderItem={({item}) => (

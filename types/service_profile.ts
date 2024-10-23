@@ -6,8 +6,8 @@ import { Question } from "./question";
 import { Review } from "./review";
 import { Video } from "./video";
 
-export type ServiceProject = {
-  id: 0,
+export type ServiceProfile = {
+  id: number,
   uid: string, 
   domainEvents: [
   {}
