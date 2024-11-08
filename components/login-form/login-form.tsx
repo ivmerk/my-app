@@ -13,7 +13,6 @@ export default function LoginForm  () {
   const [password, setPassword] = useState('79206907175');
 
   const {setUser} = useAuth();
-
   const handleLogin =async () => {
     try {
       const response = await fetch(`${PROXY_URL}https://identity.hantify.ru/api/login`, {
