@@ -1,3 +1,4 @@
+import { Address } from "./address";
 import { Favorites } from "./favorites";
 
 export type Profile = {
@@ -21,5 +22,48 @@ export type Profile = {
   rating: number,
   reviewsCount: number,
   roles: [],
-  services: [] ;
+  services:{
+    count: number,
+    data:Service [],
+  };
+    state: number,
+  statistics: {
+    categories: Category[],
+    activeServices: number,
+    archivesSerivces: number,
+    inactivesServices: number,
+    unarchivesSerivces: number },
+  uid: string,
+  updatedAt: string,
+  userUid: string,
+  verificationCode: string,
 }
+
+
+type Category = {
+  name: string,
+  slug: string,
+  uid: string
+}
+
+type Service = {
+  address: Address, 
+  author: string,
+  categoryUid: string,
+  created_at: string,
+  deleted_at: string | null
+  description: string, 
+  images: string[],
+  is_active: boolean,
+  is_archive: boolean,
+  price: number,
+  price_list: []
+  rating: number, 
+  reviews: []
+  reviews_count: number,
+  slug: string,
+  title: string,
+  uid: string,
+  updated_at: string | null
+}
+
